@@ -52,7 +52,7 @@
 				<div class="form-group">
 					<label>
 						여행코스 이름
-						<input name="title">
+						<input type="text" name="title">
 					</label>
 				</div>
 				<div class="form-group">
@@ -73,7 +73,7 @@
 				<div class="form-group">
 				<label>
 					출발지
-					<input type="text" name="startPlace" class="form-control" value="${login.userid}">
+					<input type="text" name="startPlace" class="form-control">
 				</label>
 				</div>
 				<div class="form-group">
@@ -88,12 +88,8 @@
 				</div>
 				<div class="form-group">
 				<label>
-					관리자 성명
-					<input type="text" name="managerMan" class="form-control" value="${login.userid}">
-				</label>
-				<label>
-					관리자 연락처
-					<input type="text" name="managerCall" class="form-control" value="${login.userid}">
+					여행기간
+					<input type="text" name="travelTerm" class="form-control">
 				</label>
 				</div>
 				<div class="form-group">

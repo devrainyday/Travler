@@ -6,7 +6,7 @@ public class BookingVO {
 	private int tItemNum;
 	private int bIdx;
 	private String tTitle;
-	private String mNum;
+	private int mNum;
 	private String mName;
 	private String bState;
 	private Date bookingDate;
@@ -30,10 +30,10 @@ public class BookingVO {
 	public void settTitle(String tTitle) {
 		this.tTitle = tTitle;
 	}
-	public String getmNum() {
+	public int getmNum() {
 		return mNum;
 	}
-	public void setmNum(String mNum) {
+	public void setmNum(int mNum) {
 		this.mNum = mNum;
 	}
 	public String getmName() {

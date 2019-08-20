@@ -29,5 +29,4 @@ public interface CourseMapper {
 			+ "title=#{title}, kind=#{kind}, startPlace=#{startPlace}, traffic=#{traffic}, travelTerm=#{travelTerm}, tCourse=#{tCourse}, tTravelPlace=#{tTravelPlace}, tWarning=#{tWarning}, latitude=#{latitude}, longitude=#{longitude} "
 			+ "WHERE tcIdx=#{idx}")
 	public void courseModify(CourseVO vo);
-    
 }

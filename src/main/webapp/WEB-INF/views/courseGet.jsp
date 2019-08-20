@@ -49,12 +49,12 @@
 	<div class="row">
 			
 		<div style="margin-bottom: 50px;">
-			<a href="/courses/modify?idx=${course.courseIdx}">
+			<a href="/courses/modify?idx=${course.tcIdx}">
 			<button type="button" class="btn btn-primary btn-md">수정</button>
 			수정
 			</a>
 			
-			<a href="/courses/remove?idx=${course.courseIdx}">
+			<a href="/courses/remove?idx=${course.tcIdx}">
 			<button type="button" class="btn btn-danger btn-md">삭제</button>
 			삭제
 			</a>
@@ -68,7 +68,7 @@
 		<table style="width: 100%" class="col-md-12 col-sm-12 col-xs-12 table table-bordered">
 			<tr colspan="2">
 				<td>
-					<span style="float: left;">${course.courseIdx}</span>
+					<span style="float: left;">${course.tcIdx}</span>
 					<span style="float: right;">${course.title}</span>
 				</td>
 			</tr>
@@ -89,8 +89,8 @@
 			</tr>
 			
 			<tr>
-				<td>관리자</td>
-				<td>${course.managerMan} (tel. ${course.managerCall})</td>
+				<td>여행기간</td>
+				<td>${course.travelTerm}</td>
 			</tr>
 			
 			<tr>

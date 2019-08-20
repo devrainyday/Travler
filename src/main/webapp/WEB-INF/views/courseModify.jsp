@@ -50,7 +50,7 @@
 			<div class="panel-body">
 			
 			<div style="margin-bottom: 50px;">
-				<a href="/board/list">
+				<a href="/course/list">
 				<button type="button" class="btn btn-primary btn-md">목록으로</button>
 				목록으로
 				</a>
@@ -99,12 +99,8 @@
 				</div>
 				<div class="form-group">
 				<label>
-					관리자 성명
-					<input type="text" name="managerMan" class="form-control" value="${course.managerMan}" readonly>
-				</label>
-				<label>
-					관리자 연락처
-					<input type="tel" name="managerCall" class="form-control" value="${course.managerCall}" readonly>
+					여행기간
+					<input type="text" name="travelTerm" class="form-control" value="${course.travelTerm}">
 				</label>
 				</div>
 				<div class="form-group">

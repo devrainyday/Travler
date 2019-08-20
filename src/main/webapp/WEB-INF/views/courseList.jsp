@@ -53,7 +53,7 @@
 				<button type="button" class="btn btn-primary btn-block btn-sm">여행 코스 추가</button>
 				</a>
 				
-				<form action="../courses/search" method="post">
+				<form action="../courses/list" method="post">
 					<select name="type">
 						<option value="title">코스명</option>
 						<option value="kind">여행종류</option>
@@ -73,23 +73,22 @@
 						<th>여행코스명</th>
 						<th>출발지</th>
 						<th>교통수단(여행 종류)</th>
-						<th>관리자</th>
 					</tr>
 				</thead>
 				
 				<c:forEach items="${list}" var="course">
 				<tr>
 					<td>
-					<c:out value="${course.courseIdx}"></c:out>
+					<c:out value="${course.tcIdx}"></c:out>
 					</td>
 					<td>
-					<a href="/courses/get?idx=<c:out value="${course.courseIdx}" />">
+					<a href="/courses/get?idx=<c:out value="${course.tcIdx}" />">
 						<c:out value="${course.title}">
 						</c:out>
 						<!-- 
-						<c:if test="${board.replyCnt > 0 }">
+						<c:if test="${course.replyCnt > 0 }">
 							<strong>
-								[ <c:out value="${board.replyCnt}" /> ]
+								[ <c:out value="${course.replyCnt}" /> ]
 							</strong>
 						</c:if>
 						 -->
@@ -98,7 +97,6 @@
 					</td>
 					<td><c:out value="${course.startPlace}"></c:out></td>
 					<td><c:out value="${course.traffic} (${course.kind})"></c:out></td>
-					<td><c:out value="${course.managerMan} (tel. ${course.managerCall})"></c:out></td>
 				</tr>
 				</c:forEach>
 			</table>

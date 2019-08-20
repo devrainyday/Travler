@@ -32,5 +32,4 @@ public interface ItemMapper {
 
 	@Update("UPDATE TRAVELITEM SET hit = #{hit} WHERE tiIdx=#{tiIdx}")
 	public void itemUpdateHit(int idx);
-	
 }
