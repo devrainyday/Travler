@@ -60,100 +60,63 @@
 			
 			<form action="/items/modify" method="post">
 			
-				<input type="hidden" name="tcIdx" value="${item.tcIdx}">
+				<input type="hidden" name="tiIdx" value="${item.tiIdx}">
 			
-				<div class="form-group">
-					<label>
-						여행코스 이름
-						<input name="title" value="${item.title}">
-					</label>
-				</div>
 				<div class="form-group">
 				<label>
 					여행 종류
-					<select name="kind">
-						<option value="당일 버스">당일 버스여행</option>
-						<option value="숙박 버스">숙박 버스여행</option>
-						<option value="당일 기차">당일 기차여행</option>
-						<option value="숙박 기차">숙박 기차여행</option>
-						<option value="제주도">제주도</option>
-						<option value="울릉도·독도">울릉도·독도</option>
-						<option value="홍도·흑산도">홍도·흑산도</option>
-						<option value="백령도·대청도">백령도·대청도</option>
+					<select name="tCourseNum">
+						<c:forEach items="${courseTitleList}" var="numItem">
+							<option value="<c:out value="${numItem.tcIdx}" />"><c:out value="(${numItem.tcIdx}) ${numItem.title}" /></option>
+						</c:forEach>
 					</select>
 				</label>
 				</div>
 				<div class="form-group">
-				<label>
-					출발지
-					<input type="text" name="startPlace" class="form-control" value="${item.startPlace}">
-				</label>
+					<label>
+						출발일
+						<input type="date" name="startDay" value="${course.startDay}" class="form-control">
+					</label>
+					<label>
+						도착일
+						<input type="date" name="endDay"  value="${course.endDay}"class="form-control">
+					</label>
 				</div>
 				<div class="form-group">
-				<label>
-					교통수단
-					<select name="traffic">
-						<option value="버스">버스</option>
-						<option value="항공">항공</option>
-						<option value="열차">열차</option>
-					</select>
-				</label>
+					<label>
+						일반 회원가
+						<input type="number" name="charge"  value="${course.charge}"class="form-control" step="1000">
+					</label>
+					<label>
+						어린이 요금
+						<input type="number" name="childCharge"  value="${course.childCharge}"class="form-control" step="1000">
+					</label>
+					<label>
+						영아 요금
+						<input type="number" name="infantCharge"  value="${course.infantCharge}"class="form-control" step="1000">
+					</label>
 				</div>
-				<div class="form-group">
-				<label>
-					여행기간
-					<input type="text" name="travelTerm" class="form-control" value="${item.travelTerm}">
-				</label>
+				<div>
+					<label>
+						최소 인원
+						<input type="number" name="minMan"  value="${course.minMan}" class="form-control">
+					</label>
+					<label>
+						최대 인원
+						<input type="number" name="maxMan"  value="${course.maxMan}" class="form-control">
+					</label>
 				</div>
-				<div class="form-group">
-			   <script src="https://cdn.ckeditor.com/ckeditor5/12.2.0/classic/ckeditor.js"></script>
-                <label>
-           			상세 일정
-                	<textarea name="titem" id="editoritem">${item.titem}</textarea>
-                </label>
-                <script>
-                    ClassicEditor
-                        .create( document.querySelector( '#editoritem' ) )
-                        .catch( error => {
-                            console.error( error );
-                        } );
-                </script>
+				<div>
+					<label>
+						담당자 성명
+						<input type="text" name="managerMan"  value="${course.managerMan}" class="form-control">
+					</label>
+					<label>
+						담당자 연락처
+						<input type="text" name="managerCall"  value="${course.managerCall}" class="form-control">
+					</label>
 				</div>
-				<div class="form-group">
-				<script src="https://cdn.ckeditor.com/ckeditor5/12.2.0/classic/ckeditor.js"></script>
-                <label>
-           			여행지 및 호텔정보
-                	<textarea name="tTravelPlace" id="editorTravelPlace">${item.tTravelPlace}</textarea>
-                </label>
-                <script>
-                    ClassicEditor
-                        .create( document.querySelector( '#editorTravelPlace' ) )
-                        .catch( error => {
-                            console.error( error );
-                        } );
-                </script>
-				</div>
-				<div class="form-group">
-				<script src="https://cdn.ckeditor.com/ckeditor5/12.2.0/classic/ckeditor.js"></script>
-                <label>
-           			환불규정 및 주의사항
-                	<textarea name="tWarning" id="editorWarning">${item.tWarning}</textarea>
-                </label>
-                <script>
-                    ClassicEditor
-                        .create( document.querySelector( '#editorWarning' ) )
-                        .catch( error => {
-                            console.error( error );
-                        } );
-                </script>
-				</div>
-				<div class="form-group">
-				<label>
-					위치
-					<input type="text" name="latitude" class="form-control" maxlength="10" style="width: 45%" value="${item.latitude}" >
-					<input type="text" name="longitude" class="form-control" maxlength="10" style="width: 45%" value="${item.longitude}" >
-				</label>
-				</div>
+				
 				<input type="submit" class="btn btn-success" value="Submit" style="width: 45%">
 				<input type="reset" class="btn btn-warning" value="Reset" style="width: 45%">
 			</form>

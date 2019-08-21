@@ -56,7 +56,7 @@
 					여행 종류
 					<select name="tCourseNum">
 						<c:forEach items="${courseTitleList}" var="numItem">
-							<option value="<c:out value="${numItem.tcIdx}" />"><c:out value="${numItem.title}" /></option>
+							<option value="<c:out value="${numItem.tcIdx}" />"><c:out value="(${numItem.tcIdx}) ${numItem.title}" /></option>
 						</c:forEach>
 					</select>
 				</label>
@@ -105,7 +105,6 @@
 						<input type="text" name="managerCall" class="form-control">
 					</label>
 				</div>
-				
 				
 				<input type="submit" class="btn btn-success" value="Submit" style="width: 45%">
 				<input type="reset" class="btn btn-warning" value="Reset" style="width: 45%">

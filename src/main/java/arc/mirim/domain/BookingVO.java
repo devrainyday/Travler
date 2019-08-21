@@ -8,6 +8,7 @@ public class BookingVO {
 	private String tTitle;
 	private int mNum;
 	private String mName;
+	private int totalCharge;
 	private String bState;
 	private Date bookingDate;
 	private String warning;
@@ -42,6 +43,12 @@ public class BookingVO {
 	public void setmName(String mName) {
 		this.mName = mName;
 	}
+	public int getTotalCharge() {
+		return totalCharge;
+	}
+	public void setTotalCharge(int totalCharge) {
+		this.totalCharge = totalCharge;
+	}
 	public String getbState() {
 		return bState;
 	}
@@ -64,7 +71,7 @@ public class BookingVO {
 	@Override
 	public String toString() {
 		return "BookingVO [tItemNum=" + tItemNum + ", bIdx=" + bIdx + ", tTitle=" + tTitle + ", mNum=" + mNum
-				+ ", mName=" + mName + ", bState=" + bState + ", bookingDate=" + bookingDate + ", warning=" + warning
-				+ "]";
+				+ ", mName=" + mName + ", totalCharge=" + totalCharge + ", bState=" + bState + ", bookingDate="
+				+ bookingDate + ", warning=" + warning + "]";
 	}
 }
