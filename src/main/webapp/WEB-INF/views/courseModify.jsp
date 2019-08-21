@@ -50,7 +50,7 @@
 			<div class="panel-body">
 			
 			<div style="margin-bottom: 50px;">
-				<a href="/course/list">
+				<a href="/courses/list">
 				<button type="button" class="btn btn-primary btn-md">목록으로</button>
 				목록으로
 				</a>
@@ -58,7 +58,7 @@
 			
 			<form action="/courses/modify" method="post">
 			
-				<input type="hidden" name="courseIdx" value="${course.courseIdx}">
+				<input type="hidden" name="tcIdx" value="${course.tcIdx}">
 			
 				<div class="form-group">
 					<label>
@@ -107,7 +107,7 @@
 			   <script src="https://cdn.ckeditor.com/ckeditor5/12.2.0/classic/ckeditor.js"></script>
                 <label>
            			상세 일정
-                	<textarea name="tCourse" id="editorCourse"></textarea>
+                	<textarea name="tCourse" id="editorCourse">${course.tCourse}</textarea>
                 </label>
                 <script>
                     ClassicEditor
@@ -121,7 +121,7 @@
 				<script src="https://cdn.ckeditor.com/ckeditor5/12.2.0/classic/ckeditor.js"></script>
                 <label>
            			여행지 및 호텔정보
-                	<textarea name="tTravelPlace" id="editorTravelPlace">${course.managerCall}</textarea>
+                	<textarea name="tTravelPlace" id="editorTravelPlace">${course.tTravelPlace}</textarea>
                 </label>
                 <script>
                     ClassicEditor
@@ -135,7 +135,7 @@
 				<script src="https://cdn.ckeditor.com/ckeditor5/12.2.0/classic/ckeditor.js"></script>
                 <label>
            			환불규정 및 주의사항
-                	<textarea name="tWarning" id="editorWarning">${course.managerCall}</textarea>
+                	<textarea name="tWarning" id="editorWarning">${course.tWarning}</textarea>
                 </label>
                 <script>
                     ClassicEditor

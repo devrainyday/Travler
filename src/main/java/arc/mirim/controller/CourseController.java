@@ -41,7 +41,7 @@ public class CourseController {
 	public String register(CourseVO vo) {
 		System.out.println("it's course register post");
 		courseS.courseRegister(vo);
-		return "redirect:/course/list";
+		return "redirect:/courses/list";
 	}
 	
 	@GetMapping("/get")
@@ -65,14 +65,14 @@ public class CourseController {
 	public String modify(CourseVO vo) {
 		System.out.println("it's course modify post");
 		courseS.courseModify(vo);
-		return "redirect:/courseGet";
+		return "redirect:/courses/list";
 	}
 	
 	@GetMapping("/remove")
 	public String remove(@RequestParam("idx") int idx) {
 		System.out.println("it's course remove get");
 		courseS.courseRemove(idx);
-		return "redirect:/courseList";
+		return "redirect:/courses/list";
 	}
 	
 }

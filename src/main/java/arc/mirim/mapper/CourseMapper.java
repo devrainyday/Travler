@@ -19,7 +19,7 @@ public interface CourseMapper {
 	public CourseVO courseGet(int idx);
 	
 	@Insert("INSERT INTO TRAVELCOURSE (tcIdx, title, kind, startPlace, traffic, travelTerm, tCourse, tTravelPlace, tWarning, latitude, longitude) "
-			+ "VALUES (TCIDX.nextval, #{title}, #{kind}, #{startPlace}, #{traffic}, #{travelTerm}, #{tCourse}, #{tTravelPlace}, #{tWarning}, #{latitude}, #{longitude})")
+			+ "VALUES (IDXSEQUENCE.nextval, #{title}, #{kind}, #{startPlace}, #{traffic}, #{travelTerm}, #{tCourse}, #{tTravelPlace}, #{tWarning}, #{latitude}, #{longitude})")
 	public void courseRegister(CourseVO vo);
 	
 	@Delete("DELETE TRAVELCOURSE WHERE tcIdx=#{idx}")
@@ -27,6 +27,6 @@ public interface CourseMapper {
 	
 	@Update("UPDATE TRAVELCOURSE SET "
 			+ "title=#{title}, kind=#{kind}, startPlace=#{startPlace}, traffic=#{traffic}, travelTerm=#{travelTerm}, tCourse=#{tCourse}, tTravelPlace=#{tTravelPlace}, tWarning=#{tWarning}, latitude=#{latitude}, longitude=#{longitude} "
-			+ "WHERE tcIdx=#{idx}")
+			+ "WHERE tcIdx=#{tcIdx}")
 	public void courseModify(CourseVO vo);
 }

@@ -36,6 +36,7 @@ public class CourseServiceImpl implements CourseService {
 	public void courseModify(CourseVO vo) {
 		System.out.println("Modify course");
 		courseMapper.courseModify(vo);
+		System.out.println(vo);
 	}
 
 	@Override

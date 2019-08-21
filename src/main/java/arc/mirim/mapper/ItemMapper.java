@@ -20,7 +20,7 @@ public interface ItemMapper {
 	public ItemVO itemGet(int idx);
 	
 	@Insert("INSERT INTO TRAVELITEM (tCourseNum, tiIdx, startDay, endDay, charge, childCharge, infantCharge, minMan, maxMan, managerMan, managerCall) "
-			+ "VALUES (#{tCourseNum}, TIIDX.nextval, #{startDay}, #{endDay}, #{charge}, #{childCharge}, #{infantCharge}, #{minMan}, #{maxMan}, #{managerMan}, #{managerCall})")
+			+ "VALUES (#{tCourseNum}, IDXSEQUENCE.nextval, #{startDay}, #{endDay}, #{charge}, #{childCharge}, #{infantCharge}, #{minMan}, #{maxMan}, #{managerMan}, #{managerCall})")
 	public void itemRegister(ItemVO vo);
 	
 	@Delete("DELETE TRAVELITEM WHERE tiIdx=#{tiIdx}")

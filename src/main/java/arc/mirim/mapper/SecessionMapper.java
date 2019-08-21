@@ -19,9 +19,9 @@ public interface SecessionMapper {
 	public SecessionVO secessionGet(int idx);
 	
 	@Select("SELECT * FROM SECESSION WHERE id=#{userid}")
-	public List<SecessionVO> secessionGet(String id);
+	public List<SecessionVO> secessionGetById(String id);
 
-    @Insert("INSERT INTO SECESSION (sIdx, id, name) VALUES (SIDX.nextval, #{userid}, #{username})")
+    @Insert("INSERT INTO SECESSION (sIdx, id, name) VALUES (IDXSEQUENCE.nextval, #{userid}, #{username})")
     public void registerSecession(SecessionVO vo);
 	
     // Secession 은 Update, Delete 하지 않음

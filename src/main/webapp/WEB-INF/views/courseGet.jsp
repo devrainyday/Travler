@@ -69,6 +69,8 @@
 			<tr colspan="2">
 				<td>
 					<span style="float: left;">${course.tcIdx}</span>
+				</td>
+				<td>
 					<span style="float: right;">${course.title}</span>
 				</td>
 			</tr>

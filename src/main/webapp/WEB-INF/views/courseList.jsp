@@ -83,20 +83,11 @@
 					</td>
 					<td>
 					<a href="/courses/get?idx=<c:out value="${course.tcIdx}" />">
-						<c:out value="${course.title}">
-						</c:out>
-						<!-- 
-						<c:if test="${course.replyCnt > 0 }">
-							<strong>
-								[ <c:out value="${course.replyCnt}" /> ]
-							</strong>
-						</c:if>
-						 -->
-						 
+						<c:out value="${course.title}" />
 					</a>
 					</td>
-					<td><c:out value="${course.startPlace}"></c:out></td>
-					<td><c:out value="${course.traffic} (${course.kind})"></c:out></td>
+					<td><c:out value="${course.startPlace}" /></td>
+					<td><c:out value="${course.traffic} (${course.kind})" /></td>
 				</tr>
 				</c:forEach>
 			</table>

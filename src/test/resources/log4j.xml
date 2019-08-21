@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="arc.mirim.controller">
+	<logger name="arc.mirim.yewon">
 		<level value="info" />
 	</logger>
 	
