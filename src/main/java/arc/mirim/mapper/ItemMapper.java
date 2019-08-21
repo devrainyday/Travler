@@ -31,5 +31,5 @@ public interface ItemMapper {
 	public void itemModify(ItemVO vo);
 
 	@Update("UPDATE TRAVELITEM SET hit = #{hit} WHERE tiIdx=#{tiIdx}")
-	public void itemUpdateHit(int idx);
+	public void itemUpdateHit(int idx, int hit);
 }

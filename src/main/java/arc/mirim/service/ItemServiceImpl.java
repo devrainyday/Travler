@@ -16,38 +16,40 @@ public class ItemServiceImpl implements ItemService {
 	
 	@Override
 	public List<ItemVO> itemGetAll() {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("Getting all item");
+		return itemMapper.itemGetAll();
 	}
 
 	@Override
 	public ItemVO itemGet(int idx) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("Getting item");
+		return itemMapper.itemGet(idx);
 	}
 
 	@Override
 	public void itemRegister(ItemVO vo) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Register item");
+		itemMapper.itemRegister(vo);
 	}
 
 	@Override
 	public void itemRemove(int idx) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Remove item");
+		itemMapper.itemRemove(idx);
 	}
 
 	@Override
 	public void itemModify(ItemVO vo) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Modify item");
+		itemMapper.itemModify(vo);
+		System.out.println(vo);
 	}
 
 	@Override
-	public void itemUpdateHit(int idx) {
-		// TODO Auto-generated method stub
-		
+	public void itemUpdateHit(int idx, int hit) {
+		System.out.println("Modify item's idx, hit");
+		itemMapper.itemUpdateHit(idx, hit);
+		System.out.println(idx+" "+hit);
 	}
 
 }

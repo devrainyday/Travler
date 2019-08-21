@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import arc.mirim.domain.CourseVO;
+import arc.mirim.domain.courseNumVO;
 
 public interface CourseMapper {
 	// TRAVELCOURSE
@@ -17,6 +18,9 @@ public interface CourseMapper {
 	
 	@Select("SELECT * FROM TRAVELCOURSE WHERE tcIdx=#{idx}")
 	public CourseVO courseGet(int idx);
+	
+	@Select("SELECT title FROM TRAVELCOURSE")
+	public List<courseNumVO> courseGetTitle();
 	
 	@Insert("INSERT INTO TRAVELCOURSE (tcIdx, title, kind, startPlace, traffic, travelTerm, tCourse, tTravelPlace, tWarning, latitude, longitude) "
 			+ "VALUES (IDXSEQUENCE.nextval, #{title}, #{kind}, #{startPlace}, #{traffic}, #{travelTerm}, #{tCourse}, #{tTravelPlace}, #{tWarning}, #{latitude}, #{longitude})")

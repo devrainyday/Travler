@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import arc.mirim.domain.CourseVO;
+import arc.mirim.domain.courseNumVO;
 import arc.mirim.mapper.CourseMapper;
 
 @Service
@@ -43,5 +44,10 @@ public class CourseServiceImpl implements CourseService {
 	public void courseRemove(int idx) {
 		System.out.println("Remove course");
 		courseMapper.courseRemove(idx);
+	}
+
+	@Override
+	public List<courseNumVO> courseTitleGet() {
+		return courseMapper.courseGetTitle();
 	}
 }
