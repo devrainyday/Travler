@@ -27,7 +27,7 @@ public class CourseController {
 		for(CourseVO c : courseList) {
 			System.out.println(c);
 		}
-		model.addAttribute("list", courseS.courseGetAll());
+		model.addAttribute("list", courseList);
 		return "/courseList";
 	}
 	

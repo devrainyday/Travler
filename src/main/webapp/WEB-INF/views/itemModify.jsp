@@ -64,12 +64,8 @@
 			
 				<div class="form-group">
 				<label>
-					여행 종류
-					<select name="titemNum">
-						<c:forEach items="${itemTitleList}" var="numItem">
-							<option value="<c:out value="${numItem.tcIdx}" />"><c:out value="(${numItem.tcIdx}) ${numItem.title}" /></option>
-						</c:forEach>
-					</select>
+					여행 코스 번호
+					<input type="text" name="managerMan"  value="${item.tCourseNum}" class="form-control">
 				</label>
 				</div>
 				<div class="form-group">

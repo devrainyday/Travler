@@ -28,7 +28,7 @@
 	
 	<mybatis-spring:scan base-package="arc.mirim.mapper" />
 	
-	<context:component-scan base-package="arc.mirim.service"></context:component-scan>
+	<context:component-scan base-package="arc.mirim.service" />
 	
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>

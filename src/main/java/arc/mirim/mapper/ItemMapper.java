@@ -29,6 +29,6 @@ public interface ItemMapper {
 			+ "WHERE tiIdx=#{tiIdx}")
 	public void itemModify(ItemVO vo);
 
-	@Update("UPDATE TRAVELITEM SET hit = #{hit} WHERE tiIdx=#{idx}")
-	public void itemUpdateHit(int idx, int hit);
+	@Update("UPDATE TRAVELITEM SET hit = hit+1 WHERE tiIdx=#{idx}")
+	public void itemUpdateHit(int idx);
 }

@@ -31,7 +31,7 @@ public class ItemController {
 		for(ItemVO i : itemList) {
 			System.out.println(i);
 		}
-		model.addAttribute("list", itemS.itemGetAll());
+		model.addAttribute("list", itemList);
 		return "/itemList";
 	}
 	
@@ -53,10 +53,9 @@ public class ItemController {
 	@GetMapping("/get")
 	public String get(@RequestParam("idx") int idx, Model model) {
 			System.out.println("it's item get get");
-
 			ItemVO item = itemS.itemGet(idx);
 			System.out.println("aaaaa"+item);
-			itemS.itemUpdateHit(idx, item.getHit()+1);
+			itemS.itemUpdateHit(idx);
 			System.out.println("bbbbb"+item);
 			model.addAttribute("item", itemS.itemGet(idx));
 			return "/itemGet";

@@ -10,5 +10,5 @@ public interface ItemService {
 	public void itemRegister(ItemVO vo);
 	public void itemRemove(int idx);
 	public void itemModify(ItemVO vo);
-	public void itemUpdateHit(int idx, int hit);
+	public void itemUpdateHit(int idx);
 }

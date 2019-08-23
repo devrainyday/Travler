@@ -30,6 +30,7 @@ public class ItemServiceImpl implements ItemService {
 	public void itemRegister(ItemVO vo) {
 		System.out.println("Register item");
 		itemMapper.itemRegister(vo);
+		System.out.println(vo);
 	}
 
 	@Override
@@ -46,10 +47,10 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
-	public void itemUpdateHit(int idx, int hit) {
+	public void itemUpdateHit(int idx) {
 		System.out.println("Modify item's idx, hit");
-		itemMapper.itemUpdateHit(idx, hit);
-		System.out.println(idx+" "+hit);
+		itemMapper.itemUpdateHit(idx);
+		System.out.println(idx);
 	}
 
 }
