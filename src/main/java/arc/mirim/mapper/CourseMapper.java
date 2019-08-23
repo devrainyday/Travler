@@ -19,7 +19,7 @@ public interface CourseMapper {
 	@Select("SELECT * FROM TRAVELCOURSE WHERE tcIdx=#{idx}")
 	public CourseVO courseGet(int idx);
 	
-	@Select("SELECT title FROM TRAVELCOURSE")
+	@Select("SELECT tcIdx, title FROM TRAVELCOURSE")
 	public List<courseNumVO> courseGetTitle();
 	
 	@Insert("INSERT INTO TRAVELCOURSE (tcIdx, title, kind, startPlace, traffic, travelTerm, tCourse, tTravelPlace, tWarning, latitude, longitude) "

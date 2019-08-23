@@ -1,6 +1,5 @@
 package arc.mirim.mapper;
 
-import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -19,8 +18,8 @@ public interface ItemMapper {
 	@Select("SELECT * FROM TRAVELITEM WHERE tiIdx=#{tiIdx}")
 	public ItemVO itemGet(int idx);
 	
-	@Insert("INSERT INTO TRAVELITEM (tCourseNum, tiIdx, startDay, endDay, charge, childCharge, infantCharge, minMan, maxMan, managerMan, managerCall) "
-			+ "VALUES (#{tCourseNum}, IDXSEQUENCE.nextval, #{startDay}, #{endDay}, #{charge}, #{childCharge}, #{infantCharge}, #{minMan}, #{maxMan}, #{managerMan}, #{managerCall})")
+	@Insert("INSERT INTO TRAVELITEM (tiIdx, tCourseNum, startDay, endDay, charge, childCharge, infantCharge, minMan, maxMan, managerMan, managerCall) "
+			+ "VALUES (IDXSEQUENCE.nextval, #{tCourseNum}, #{startDay}, #{endDay}, #{charge}, #{childCharge}, #{infantCharge}, #{minMan}, #{maxMan}, #{managerMan}, #{managerCall})")
 	public void itemRegister(ItemVO vo);
 	
 	@Delete("DELETE TRAVELITEM WHERE tiIdx=#{tiIdx}")
@@ -30,6 +29,6 @@ public interface ItemMapper {
 			+ "WHERE tiIdx=#{tiIdx}")
 	public void itemModify(ItemVO vo);
 
-	@Update("UPDATE TRAVELITEM SET hit = #{hit} WHERE tiIdx=#{tiIdx}")
+	@Update("UPDATE TRAVELITEM SET hit = #{hit} WHERE tiIdx=#{idx}")
 	public void itemUpdateHit(int idx, int hit);
 }

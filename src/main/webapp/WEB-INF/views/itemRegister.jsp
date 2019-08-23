@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>여행 코스 작성</title>
+	<title>여행 상품 작성</title>
  <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,6 +38,16 @@
 		text-decoration: none;
 	}
 	</style>
+	
+	<script>
+	function chk_item(){
+		let frm = document.frm_item_register;
+		let s = document.getElementById("tCourseNumNot");
+		let selectValue = Number(s.options[s.selectedIndex].value);
+		document.getElementById("tCourseNum").value = selectValue;
+		frm.submit();
+	}
+	</script>
 </head>
 <body>
 <div class="jumbotron text-center">
@@ -50,13 +60,17 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 			
-			<form action="/items/register" method="post">
+			<div style="visibility: hidden;">
+				<input id="tCourseNum" type="number" name="tCourseNum">
+			</div>
+			
+			<form action="/items/register" method="post" name="frm_item_register">
 				<div class="form-group">
 				<label>
 					여행 종류
-					<select name="tCourseNum">
+					<select id="tCourseNumNot">
 						<c:forEach items="${courseTitleList}" var="numItem">
-							<option value="<c:out value="${numItem.tcIdx}" />"><c:out value="(${numItem.tcIdx}) ${numItem.title}" /></option>
+							<option value="<c:out value="${numItem.tcIdx}" />"><c:out value="${numItem.title}" /></option>
 						</c:forEach>
 					</select>
 				</label>
@@ -106,7 +120,7 @@
 					</label>
 				</div>
 				
-				<input type="submit" class="btn btn-success" value="Submit" style="width: 45%">
+				<button type="button" onClick="chk_item()" class="btn btn-success" style="width: 45%">Submit</button>
 				<input type="reset" class="btn btn-warning" value="Reset" style="width: 45%">
 			</form>
 			

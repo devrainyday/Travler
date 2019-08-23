@@ -46,7 +46,7 @@ public class ItemController {
 	@PostMapping("/register")
 	public String register(ItemVO vo) {
 		System.out.println("it's item register post");
-		itemS.itemRegister(vo);
+		System.out.println(vo);
 		return "redirect:/items/list";
 	}
 	
@@ -55,15 +55,15 @@ public class ItemController {
 			System.out.println("it's item get get");
 
 			ItemVO item = itemS.itemGet(idx);
-			System.out.println(item);
+			System.out.println("aaaaa"+item);
 			itemS.itemUpdateHit(idx, item.getHit()+1);
+			System.out.println("bbbbb"+item);
 			model.addAttribute("item", itemS.itemGet(idx));
-			
 			return "/itemGet";
 	}
 	
 	@GetMapping("/modify")
-	public String modify(@RequestParam("idx") int idx, Model model) {
+	public String modifyGet(@RequestParam("idx") int idx, Model model) {
 		// Course 제목 목록을 뽑아서 전달해야 함
 		System.out.println("it's item modify get");
 		model.addAttribute("item", itemS.itemGet(idx));
@@ -72,7 +72,7 @@ public class ItemController {
 	}
 	
 	@PostMapping("/modify")
-	public String modify(ItemVO vo) {
+	public String modifyPost(ItemVO vo) {
 		System.out.println("it's item modify post");
 		itemS.itemModify(vo);
 		return "redirect:/items/list";

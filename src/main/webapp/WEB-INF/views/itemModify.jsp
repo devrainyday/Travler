@@ -65,8 +65,8 @@
 				<div class="form-group">
 				<label>
 					여행 종류
-					<select name="tCourseNum">
-						<c:forEach items="${courseTitleList}" var="numItem">
+					<select name="titemNum">
+						<c:forEach items="${itemTitleList}" var="numItem">
 							<option value="<c:out value="${numItem.tcIdx}" />"><c:out value="(${numItem.tcIdx}) ${numItem.title}" /></option>
 						</c:forEach>
 					</select>
@@ -75,45 +75,45 @@
 				<div class="form-group">
 					<label>
 						출발일
-						<input type="date" name="startDay" value="${course.startDay}" class="form-control">
+						<input type="date" name="startDay" value="<fmt:formatDate value="${item.startDay}" type="date" pattern="yyyy-MM-dd"/>" class="form-control">
 					</label>
 					<label>
 						도착일
-						<input type="date" name="endDay"  value="${course.endDay}"class="form-control">
+						<input type="date" name="endDay"  value="<fmt:formatDate value="${item.endDay}" type="date" pattern="yyyy-MM-dd"/>"class="form-control">
 					</label>
 				</div>
 				<div class="form-group">
 					<label>
 						일반 회원가
-						<input type="number" name="charge"  value="${course.charge}"class="form-control" step="1000">
+						<input type="number" name="charge"  value="${item.charge}"class="form-control" step="1000">
 					</label>
 					<label>
 						어린이 요금
-						<input type="number" name="childCharge"  value="${course.childCharge}"class="form-control" step="1000">
+						<input type="number" name="childCharge"  value="${item.childCharge}"class="form-control" step="1000">
 					</label>
 					<label>
 						영아 요금
-						<input type="number" name="infantCharge"  value="${course.infantCharge}"class="form-control" step="1000">
+						<input type="number" name="infantCharge"  value="${item.infantCharge}"class="form-control" step="1000">
 					</label>
 				</div>
 				<div>
 					<label>
 						최소 인원
-						<input type="number" name="minMan"  value="${course.minMan}" class="form-control">
+						<input type="number" name="minMan"  value="${item.minMan}" class="form-control">
 					</label>
 					<label>
 						최대 인원
-						<input type="number" name="maxMan"  value="${course.maxMan}" class="form-control">
+						<input type="number" name="maxMan"  value="${item.maxMan}" class="form-control">
 					</label>
 				</div>
 				<div>
 					<label>
 						담당자 성명
-						<input type="text" name="managerMan"  value="${course.managerMan}" class="form-control">
+						<input type="text" name="managerMan"  value="${item.managerMan}" class="form-control">
 					</label>
 					<label>
 						담당자 연락처
-						<input type="text" name="managerCall"  value="${course.managerCall}" class="form-control">
+						<input type="text" name="managerCall"  value="${item.managerCall}" class="form-control">
 					</label>
 				</div>
 				
