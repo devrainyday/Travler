@@ -51,17 +51,14 @@
 		<div style="margin-bottom: 50px;">
 			<a href="/courses/modify?idx=${course.tcIdx}">
 			<button type="button" class="btn btn-primary btn-md">수정</button>
-			수정
 			</a>
 			
 			<a href="/courses/remove?idx=${course.tcIdx}">
 			<button type="button" class="btn btn-danger btn-md">삭제</button>
-			삭제
 			</a>
 			
 			<a href="/courses/list">
 			<button type="button" class="btn btn-dark btn-md">목록으로</button>
-			목록으로
 			</a>
 		</div>
 		
