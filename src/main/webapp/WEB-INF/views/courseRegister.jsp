@@ -6,41 +6,17 @@
 <html>
 <head>
 	<title>여행 코스 작성</title>
- <meta charset="UTF-8">
+ 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="<c:url value='/resources/style.css?after' />">
-
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  
-  <style>
-	input, textarea {
-		padding: 5px;
-		border-radius: 5px;
-		border-style: solid;
-		border-color: darkgray;
-		width: 100%;
-	}
-	
-	a {
-		text-decoration: none;
-	}
-	
-	a:hover {
-		text-decoration: none;
-	}
-	</style>
 </head>
 <body>
-<div class="jumbotron text-center">
+
+<header>
+  	<jsp:include page="header.jsp" flush="false" />
+</header>
+
+<div class="jumbotron text-center" style="margin-top: 5rem;">
   <h2>여행 코스 작성</h2>
   <p>여행 코스 정보를 작성합니다</p> 
 </div>
@@ -54,13 +30,13 @@
 				<div class="form-group">
 					<label>
 						여행코스 이름
-						<input type="text" name="title">
+						<input type="text" name="title" class="form-control" maxlength="50">
 					</label>
 				</div>
 				<div class="form-group">
 				<label>
 					여행 종류
-					<select name="kind">
+					<select name="kind" class="form-control">
 						<option value="당일 버스">당일 버스여행</option>
 						<option value="숙박 버스">숙박 버스여행</option>
 						<option value="당일 기차">당일 기차여행</option>
@@ -75,13 +51,13 @@
 				<div class="form-group">
 				<label>
 					출발지
-					<input type="text" name="startPlace" class="form-control">
+					<input type="text" name="startPlace" class="form-control" maxlength="25">
 				</label>
 				</div>
 				<div class="form-group">
 				<label>
 					교통수단
-					<select name="traffic">
+					<select name="traffic" class="form-control">
 						<option value="버스">버스</option>
 						<option value="항공">항공</option>
 						<option value="열차">열차</option>
@@ -91,7 +67,7 @@
 				<div class="form-group">
 				<label>
 					여행기간
-					<input type="text" name="travelTerm" class="form-control">
+					<input type="text" name="travelTerm" class="form-control" maxlength="5">
 				</label>
 				</div>
 				<div class="form-group">
