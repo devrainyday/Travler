@@ -6,41 +6,17 @@
 <html>
 <head>
 	<title>여행 상품 목록</title>
- <meta charset="UTF-8">
+ 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="<c:url value='/resources/style.css?after' />">
-
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  
-  <style>
-	input, textarea {
-		padding: 5px;
-		border-radius: 5px;
-		border-style: solid;
-		border-color: darkgray;
-		width: 100%;
-	}
-	
-	a {
-		text-decoration: none;
-	}
-	
-	a:hover {
-		text-decoration: none;
-	}
-	</style>
 </head>
 <body>
-<div class="jumbotron text-center">
+
+<header>
+  	<jsp:include page="header.jsp" flush="false" />
+</header>
+
+<div class="jumbotron text-center" style="margin-top: 5rem;">
   <h2>여행 상품 목록</h2>
   <p>모든 여행 상품을 목록으로 보여줍니다</p> 
 </div>
@@ -53,23 +29,23 @@
 				<button type="button" class="btn btn-primary btn-block btn-sm">여행 상품 추가</button>
 				</a>
 				
-				<form action="../items/list" method="post">
-					<select name="type">
+				<form class="form-inline" action="../items/list" method="post">
+					<select name="type" class="form-control col-md-3 col-lg-3">
 						<option value="title">상품명</option>
 						<option value="kind">여행종류</option>
 						<option value="startPlace">출발지</option>
 						<option value="traffic">교통수단</option>
 						<option value="manager">담당자 정보</option> <!-- 두 가지 항목을 이용하여 비교 -->
 					</select>
-					<input type="text" name="keyword" style="width: 60%;">
-					<input type="submit" class="btn btn-success btn-sm" value="검색" style="width: 20%;">
+					<input type="text" name="keyword" class="form-control col-md-5 col-lg-5">
+					<input type="submit" class="btn btn-success btn-sm col-md-4 col-lg-4" value="검색">
 				</form>
 			</div>
 			 
 			<table style="width: 100%" class="col-md-12 col-sm-12 col-xs-12 table table-bordered table-hover">
 				<thead>
 					<tr>
-						<th>여행 상품 번호</th>
+						<th>여행 코스 번호</th>
 						<th>여행 상품 번호</th>
 						<th>출발일&도착일</th>
 						<th>요금</th>
@@ -86,7 +62,7 @@
 						<c:out value="${item.tiIdx}" />
 					</a>
 					</td>
-					<td><c:out value="${item.startDay} ~ ${item.endDay}" /></td>
+					<td><fmt:formatDate value="${item.startDay}" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${item.endDay}" pattern="yyyy-MM-dd"/></td>
 					<td><c:out value="${item.charge}" /></td>
 				</tr>
 				</c:forEach>

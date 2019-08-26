@@ -6,39 +6,10 @@
 <html>
 <head>
 	<title>여행 상품 작성</title>
- <meta charset="UTF-8">
+ 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="<c:url value='/resources/style.css?after' />">
-
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  
-  <style>
-	input, textarea {
-		padding: 5px;
-		border-radius: 5px;
-		border-style: solid;
-		border-color: darkgray;
-		width: 100%;
-	}
-	
-	a {
-		text-decoration: none;
-	}
-	
-	a:hover {
-		text-decoration: none;
-	}
-	</style>
-	
 	<script>
 	function chk_item(){
 		let frm = document.frm_item_register;
@@ -50,7 +21,12 @@
 	</script>
 </head>
 <body>
-<div class="jumbotron text-center">
+
+<header>
+  	<jsp:include page="header.jsp" flush="false" />
+</header>
+
+<div class="jumbotron text-center" style="margin-top: 5rem;">
   <h2>여행 상품 작성</h2>
   <p>여행 상품 정보를 작성합니다</p> 
 </div>
@@ -59,22 +35,22 @@
 	<div class="row">
 		<div class="panel panel-default">
 			<div class="panel-body">
-			
-			<div style="visibility: hidden;">
-				<input id="tCourseNum" type="number" name="tCourseNum">
-			</div>
-			
 			<form action="/items/register" method="post" name="frm_item_register">
 				<div class="form-group">
 				<label>
 					여행 종류
-					<select id="tCourseNumNot">
+					<select id="tCourseNumNot" class="form-control">
 						<c:forEach items="${courseTitleList}" var="numItem">
 							<option value="<c:out value="${numItem.tcIdx}" />"><c:out value="${numItem.title}" /></option>
 						</c:forEach>
 					</select>
 				</label>
 				</div>
+				
+				<div style="display: none;">
+					<input id="tCourseNum" name="tCourseNum" type="number">
+				</div>
+				
 				<div class="form-group">
 					<label>
 						출발일
@@ -112,11 +88,11 @@
 				<div>
 					<label>
 						담당자 성명
-						<input type="text" name="managerMan" class="form-control">
+						<input type="text" name="managerMan" class="form-control" maxlength="10">
 					</label>
 					<label>
 						담당자 연락처
-						<input type="text" name="managerCall" class="form-control">
+						<input type="text" name="managerCall" class="form-control" maxlength="15">
 					</label>
 				</div>
 				

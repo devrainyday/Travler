@@ -3,8 +3,8 @@ package arc.mirim.domain;
 import java.util.Date;
 
 public class ItemVO {
-	private int tCourseNum;
 	private int tiIdx;
+	private int tCourseNum;
 	private Date startDay;
 	private Date endDay;
 	private int charge;
@@ -15,18 +15,18 @@ public class ItemVO {
 	private String managerMan;
 	private String managerCall;
 	private int hit;
-	
-	public int gettCourseNum() {
-		return tCourseNum;
-	}
-	public void settCourseNum(int tCourseNum) {
-		this.tCourseNum = tCourseNum;
-	}
+
 	public int getTiIdx() {
 		return tiIdx;
 	}
 	public void setTiIdx(int tiIdx) {
 		this.tiIdx = tiIdx;
+	}
+	public int gettCourseNum() {
+		return tCourseNum;
+	}
+	public void settCourseNum(int tCourseNum) {
+		this.tCourseNum = tCourseNum;
 	}
 	public Date getStartDay() {
 		return startDay;

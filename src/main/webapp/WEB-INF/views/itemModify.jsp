@@ -6,42 +6,27 @@
 <html>
 <head>
 	<title>여행 코스 수정</title>
- <meta charset="UTF-8">
+ 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-   	<link rel="stylesheet" href="<c:url value='/resources/style.css?after' />">
-
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  
-  <style>
-	input, textarea {
-		padding: 5px;
-		border-radius: 5px;
-		border-style: solid;
-		border-color: darkgray;
-		width: 100%;
+	<script>
+	function chk_item(){
+		let frm = document.frm_item_modify;
+		let s = document.getElementById("tCourseNumNot");
+		let selectValue = Number(s.options[s.selectedIndex].value);
+		document.getElementById("tCourseNum").value = selectValue;
+		frm.submit();
 	}
-	
-	a {
-		text-decoration: none;
-	}
-	
-	a:hover {
-		text-decoration: none;
-	}
-	</style>
+	</script>
 
 </head>
 <body>
-<div class="jumbotron text-center">
+
+<header>
+  	<jsp:include page="header.jsp" flush="false" />
+</header>
+
+<div class="jumbotron text-center" style="margin-top: 5rem;">
   <h2>여행 상품 수정</h2>
   <p>여행 상품 정보를 수정합니다</p> 
 </div>
@@ -54,20 +39,27 @@
 			<div style="margin-bottom: 50px;">
 				<a href="/items/list">
 				<button type="button" class="btn btn-primary btn-md">목록으로</button>
-				목록으로
 				</a>
 			</div>
 			
-			<form action="/items/modify" method="post">
-			
-				<input type="hidden" name="tiIdx" value="${item.tiIdx}">
-			
+			<form action="/items/modify" method="post"  name="frm_item_modify">
 				<div class="form-group">
 				<label>
-					여행 코스 번호
-					<input type="text" name="managerMan"  value="${item.tCourseNum}" class="form-control">
+					여행 종류
+					<select id="tCourseNumNot" class="form-control">
+						<c:forEach items="${courseTitleList}" var="numItem">
+							<option value="<c:out value="${numItem.tcIdx}" />"><c:out value="${numItem.title}" /></option>
+						</c:forEach>
+					</select>
 				</label>
 				</div>
+				
+				<div style="display: none;">
+					<input id="tCourseNum" name="tCourseNum" value="${item.tCourseNum}" type="number">
+				</div>
+				
+				<input type="hidden" name="tiIdx" value="${item.tiIdx}">
+				
 				<div class="form-group">
 					<label>
 						출발일
@@ -105,11 +97,11 @@
 				<div>
 					<label>
 						담당자 성명
-						<input type="text" name="managerMan"  value="${item.managerMan}" class="form-control">
+						<input type="text" name="managerMan"  value="${item.managerMan}" class="form-control" maxlength="10">
 					</label>
 					<label>
 						담당자 연락처
-						<input type="text" name="managerCall"  value="${item.managerCall}" class="form-control">
+						<input type="text" name="managerCall"  value="${item.managerCall}" class="form-control" maxlength="15">
 					</label>
 				</div>
 				
