@@ -11,12 +11,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<script>
+    window.onload = function() { 
+		let message = document.getElementById("failMessage");
+		message.innerHTML = "";
+	}
+	
 	function chk_item(){
 		let frm = document.frm_item_register;
-		let s = document.getElementById("tCourseNumNot");
-		let selectValue = Number(s.options[s.selectedIndex].value);
-		document.getElementById("tCourseNum").value = selectValue;
-		frm.submit();
+		let message = document.getElementById("failMessage");
+		
+		if(!frm.charge.value) {
+			frm.charge.focus();
+			message.innerHTML = "일반 회원가를 입력해주세요!";
+		} else if(!frm.childCharge.value) {
+			frm.childCharge.focus();
+			message.innerHTML = "어린이 요금을 입력해주세요!";
+		} else if(!frm.infantCharge.value) {
+			frm.infantCharge.focus();
+			message.innerHTML = "영아 요금을 입력해주세요!";
+		} else if(!frm.minMan.value) {
+			frm.minMan.focus();
+			message.innerHTML = "최소 인원을 입력해주세요!";
+		} else if(!frm.maxMan.value) {
+			frm.maxMan.focus();
+			message.innerHTML = "최대 인원을 입력해주세요!";
+		} else if(!frm.managerMan.value) {
+			frm.managerMan.focus();
+			message.innerHTML = "담당자 성명을 입력해주세요!";
+		} else if(!frm.managerCall.value) {
+			frm.managerCall.focus();
+			message.innerHTML = "담당자 연락처를 입력해주세요!";
+		} else {
+			let s = document.getElementById("tCourseNumNot");
+			let selectValue = Number(s.options[s.selectedIndex].value);
+			document.getElementById("tCourseNum").value = selectValue;
+			frm.submit();
+		}
 	}
 	</script>
 </head>
@@ -54,11 +84,11 @@
 				<div class="form-group">
 					<label>
 						출발일
-						<input type="date" name="startDay" class="form-control">
+						<input onChange="change_endDay()" type="date" name="startDay" class="form-control" >
 					</label>
 					<label>
 						도착일
-						<input type="date" name="endDay" class="form-control">
+						<input type="date" name="endDay" class="form-control" >
 					</label>
 				</div>
 				<div class="form-group">
@@ -95,7 +125,9 @@
 						<input type="text" name="managerCall" class="form-control" maxlength="15" placeholder="'-' 와 함께 입력해주세요">
 					</label>
 				</div>
-				
+				<div>
+					<span id="failMessage" style="color: red;"></span>
+				</div>
 				<button type="button" onClick="chk_item()" class="btn btn-success" style="width: 45%">Submit</button>
 				<input type="reset" class="btn btn-warning" value="Reset" style="width: 45%">
 			</form>

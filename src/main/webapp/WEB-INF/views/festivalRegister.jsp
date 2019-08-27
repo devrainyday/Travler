@@ -9,6 +9,46 @@
  	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script>
+    window.onload = function() { 
+		let message = document.getElementById("failMessage");
+		message.innerHTML = "";
+	}
+	
+	function chk_festival(){
+		let frm = document.frm_festival_register;
+		let message = document.getElementById("failMessage");
+		
+		if(!frm.title.value) {
+			frm.title.focus();
+			message.innerHTML = "축제명을 입력해주세요!";
+		} else if(!frm.charge.value) {
+			frm.charge.focus();
+			message.innerHTML = "이용요금을 입력해주세요!";
+		} else if(!frm.host.value) {
+			frm.host.focus();
+			message.innerHTML = "주최측을 입력해주세요!";
+		} else if(!frm.phone.value) {
+			frm.phone.focus();
+			message.innerHTML = "문의처를 입력해주세요!";
+		} else if(!frm.site.value) {
+			frm.site.focus();
+			message.innerHTML = "축제 공식 사이트를 입력해주세요!";
+		} else if(!frm.address.value) {
+			frm.address.focus();
+			message.innerHTML = "주소를 입력해주세요!";
+		} else if(!frm.latitude.value) {
+			frm.latitude.focus();
+			message.innerHTML = "위치를 입력해주세요!";
+		} else if(!frm.longitude.value) {
+			frm.longitude.focus();
+			message.innerHTML = "위치를 입력해주세요!";
+		} else {
+			frm.submit();
+		}
+	}
+	</script>
 </head>
 <body>
 
@@ -26,7 +66,7 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 			
-			<form action="/festivals/register" method="post">
+			<form action="/festivals/register" method="post" name="frm_festival_register">
 				<div class="form-group">
 					<label>
 						축제 이름
@@ -52,7 +92,7 @@
 				<div class="form-group form-inline" class="form-inline">
 					<label>
 						축제 기간 &nbsp;
-						<input type="date" name="startDay" class="form-control">
+						<input onChange="change_endDay()" type="date" name="startDay" class="form-control">
 						&nbsp;~&nbsp;
 						<input type="date" name="endDay" class="form-control">
 					</label>
@@ -74,7 +114,7 @@
 				
 				<div class="form-group">
 				<label>
-					연락처
+					문의처
 					<input type="text" name="phone" class="form-control" maxlength="15" placeholder="'-' 와 함께 입력해주세요">
 				</label>
 				</div>
@@ -100,8 +140,10 @@
 					<input type="text" name="longitude" class="form-control" maxlength="10">
 				</label>
 				</div>
-
-				<input type="submit" class="btn btn-success" value="Submit" style="width: 45%">
+				<div>
+					<span id="failMessage" style="color: red;"></span>
+				</div>
+				<button type="button" onClick="chk_festival()" class="btn btn-success" style="width: 45%">Submit</button>
 				<input type="reset" class="btn btn-warning" value="Reset" style="width: 45%">
 			</form>
 			

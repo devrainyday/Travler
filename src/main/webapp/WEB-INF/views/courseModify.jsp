@@ -9,6 +9,38 @@
  	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.ckeditor.com/ckeditor5/12.2.0/classic/ckeditor.js"></script>
+    
+    <script>
+    window.onload = function() { 
+		let message = document.getElementById("failMessage");
+		message.innerHTML = "";
+	}
+	
+	function chk_course(){
+		let frm = document.frm_course_modify;
+		let message = document.getElementById("failMessage");
+		
+		if(!frm.title.value) {
+			frm.title.focus();
+			message.innerHTML = "여행 코스명을 입력해주세요!";
+		} else if(!frm.startPlace.value) {
+			frm.startPlace.focus();
+			message.innerHTML = "출발지를 입력해주세요!";
+		} else if(!frm.travelTerm.value) {
+			frm.travelTerm.focus();
+			message.innerHTML = "여행기간을 입력해주세요!";
+		} else if(!frm.latitude.value) {
+			frm.latitude.focus();
+			message.innerHTML = "위치를 입력해주세요!";
+		} else if(!frm.longitude.value) {
+			frm.longitude.focus();
+			message.innerHTML = "위치를 입력해주세요!";
+		} else {
+			frm.submit();
+		}
+	}
+	</script>
 </head>
 <body>
 
@@ -32,7 +64,7 @@
 				</a>
 			</div>
 			
-			<form action="/courses/modify" method="post">
+			<form action="/courses/modify" method="post" name="frm_course_modify">
 			
 				<input type="hidden" name="tcIdx" value="${course.tcIdx}">
 			
@@ -80,7 +112,6 @@
 				</label>
 				</div>
 				<div class="form-group">
-			   <script src="https://cdn.ckeditor.com/ckeditor5/12.2.0/classic/ckeditor.js"></script>
                 <label>
            			상세 일정
                 	<textarea name="tCourse" id="editorCourse">${course.tCourse}</textarea>
@@ -94,7 +125,7 @@
                 </script>
 				</div>
 				<div class="form-group">
-				<script src="https://cdn.ckeditor.com/ckeditor5/12.2.0/classic/ckeditor.js"></script>
+				
                 <label>
            			여행지 및 호텔정보
                 	<textarea name="tTravelPlace" id="editorTravelPlace">${course.tTravelPlace}</textarea>
@@ -108,7 +139,6 @@
                 </script>
 				</div>
 				<div class="form-group">
-				<script src="https://cdn.ckeditor.com/ckeditor5/12.2.0/classic/ckeditor.js"></script>
                 <label>
            			환불규정 및 주의사항
                 	<textarea name="tWarning" id="editorWarning">${course.tWarning}</textarea>
@@ -128,7 +158,10 @@
 					<input type="text" name="longitude" class="form-control" maxlength="10" value="${course.longitude}" >
 				</label>
 				</div>
-				<input type="submit" class="btn btn-success" value="Submit" style="width: 45%">
+				<div>
+					<span id="failMessage" style="color: red;"></span>
+				</div>
+				<button type="button" onClick="chk_course()" class="btn btn-success" style="width: 45%">Submit</button>
 				<input type="reset" class="btn btn-warning" value="Reset" style="width: 45%">
 			</form>
 			

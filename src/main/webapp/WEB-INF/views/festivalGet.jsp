@@ -62,7 +62,12 @@
 			
 			<tr>
 				<td>이용 요금</td>
-				<td>${festival.charge}</td>
+				<td>
+				<c:choose>
+					<c:when test="${festival.charge == 0}">무료</c:when>
+					<c:otherwise>${festival.charge}</c:otherwise>
+				</c:choose>
+				</td>
 			</tr>
 			
 			<tr>

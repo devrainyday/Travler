@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import arc.mirim.domain.ItemVO;
+import arc.mirim.domain.courseNumVO;
 import arc.mirim.service.CourseService;
 import arc.mirim.service.ItemService;
 
@@ -53,6 +54,8 @@ public class ItemController {
 		for(ItemVO i : itemList) {
 			System.out.println(i);
 		}
+		List<courseNumVO> courseTitle = courseS.courseTitleGet();
+		model.addAttribute("courseTitle", courseTitle);
 		model.addAttribute("list", itemList);
 		return "/itemList";
 	}

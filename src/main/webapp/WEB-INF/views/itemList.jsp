@@ -45,26 +45,29 @@
 			<table style="width: 100%" class="col-md-12 col-sm-12 col-xs-12 table table-bordered table-hover">
 				<thead>
 					<tr>
-						<th>여행 코스 번호</th>
-						<th>여행 상품 번호</th>
+						<th width="35%;">여행상품 번호(여행코스)</th>
 						<th>출발일&도착일</th>
 						<th>요금</th>
 					</tr>
 				</thead>
 				
 				<c:forEach items="${list}" var="item">
-				<tr>
-					<td>
-					<c:out value="${item.tCourseNum}"></c:out>
-					</td>
-					<td>
-					<a href="/items/get?idx=<c:out value="${item.tiIdx}" />">
-						<c:out value="${item.tiIdx}" />
-					</a>
-					</td>
-					<td><fmt:formatDate value="${item.startDay}" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${item.endDay}" pattern="yyyy-MM-dd"/></td>
-					<td><c:out value="${item.charge}" /></td>
-				</tr>
+					<c:forEach items="${courseTitle}" var="courseTitle">
+						<c:choose>
+							<c:when test="${item.tCourseNum eq courseTitle.tcIdx}">
+								<tr>
+									<td>
+									<a href="/items/get?idx=<c:out value="${item.tiIdx}" />">
+										<c:out value="${item.tiIdx} (${courseTitle.title})" />
+									</a>
+									</td>
+									<td><fmt:formatDate value="${item.startDay}" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${item.endDay}" pattern="yyyy-MM-dd"/></td>
+									<td><c:out value="${item.charge}" /></td>
+								</tr>
+							</c:when>
+							<c:otherwise></c:otherwise>
+						</c:choose>
+					</c:forEach>
 				</c:forEach>
 			</table>
 	</div>

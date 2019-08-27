@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e794a87025ae465cf1403850435b762e"></script>
 	<script>
 	function course_chk() {
         let courseExplanation = document.getElementById('courseExplanation');
@@ -37,8 +38,8 @@
 
 <div class="container">
 	<div class="row">
-			
-		<div style="margin-bottom: 50px;">
+		
+		<div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 50px;">
 			<a href="/items/modify?idx=${item.tiIdx}">
 			<button type="button" class="btn btn-primary btn-md">수정</button>
 			</a>
@@ -97,7 +98,7 @@
 			
 			<tr>
 				<td>위치</td>
-				<td>${course.latitude} & ${course.longitude}</td>
+				<td><div id="map" style="width:100%;height:350px;"></div></td>
 			</tr>
 			</table>
 		</div>
@@ -119,24 +120,49 @@
 			
 			<tr>
 				<td>일반 회원가</td>
-				<td>${item.charge}</td>
+				<td>
+				<c:choose>
+					<c:when test="${item.charge == 0}">무료</c:when>
+					<c:otherwise>${item.charge}</c:otherwise>
+				</c:choose>
+				</td>
 			</tr>
 			<tr>
 				<td>어린이 요금</td>
-				<td>${item.childCharge}</td>
+				<td>
+				<c:choose>
+					<c:when test="${item.childCharge == 0}">무료</c:when>
+					<c:otherwise>${item.childCharge}</c:otherwise>
+				</c:choose>
+				</td>
 			</tr>
 			<tr>
 				<td>영아 요금</td>
-				<td>${item.infantCharge}</td>
+				<td>
+				<c:choose>
+					<c:when test="${item.infantCharge == 0}">무료</c:when>
+					<c:otherwise>${item.infantCharge}</c:otherwise>
+				</c:choose>
+				</td>
 			</tr>
 			
 			<tr>
 				<td>최소 인원</td>
-				<td>${item.minMan}</td>
+				<td>
+				<c:choose>
+					<c:when test="${item.minMan == 0}">없음</c:when>
+					<c:otherwise>${item.minMan}</c:otherwise>
+				</c:choose>
+				</td>
 			</tr>
 			<tr>
 				<td>최대 인원</td>
-				<td>${item.maxMan}</td>
+				<td>
+				<c:choose>
+					<c:when test="${item.maxMan == 0}">없음</c:when>
+					<c:otherwise>${item.maxMan}</c:otherwise>
+				</c:choose>
+				</td>
 			</tr>
 			
 			<tr>
@@ -156,5 +182,30 @@
 		
 	</div>
 </div>
+
+	<script>
+		var mapContainer = document.getElementById('map'),
+		    mapOption = { 
+		        center: new kakao.maps.LatLng('${course.latitude}', '${course.longitude}'),
+		        level: 3
+		    };
+		
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+
+		var mapTypeControl = new kakao.maps.MapTypeControl();
+
+		map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+		var zoomControl = new kakao.maps.ZoomControl();
+		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+		
+		var markerPosition  = new kakao.maps.LatLng('${course.latitude}', '${course.longitude}'); 
+
+		var marker = new kakao.maps.Marker({
+		    position: markerPosition
+		});
+		
+		marker.setMap(map);
+	</script>
 </body>
 </html>
