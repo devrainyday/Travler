@@ -22,9 +22,11 @@ public interface FestivalMapper {
 			+ "VALUES (IDXSEQUENCE.nextval, #{title}, #{explain}, #{startDay}, #{endDay}, #{charge}, #{host}, #{address}, #{latitude}, #{longitude}, #{phone}, #{site})")
 	public void festivalRegister(FestivalVO vo);
 	
+	@Update("UPDATE FESTIVAL SET "
+			+ "title=#{title}, explain=#{explain}, startDay=#{startDay}, endDay=#{endDay}, charge=#{charge}, address=#{address}, latitude=#{latitude}, longitude=#{longitude}, phone=#{phone}, site=#{site} "
+			+ "WHERE fIdx=#{fIdx}")
+	public void festivalModify(FestivalVO vo);
+	
 	@Delete("DELETE FESTIVAL WHERE fIdx=#{idx}")
 	public void festivalRemove(int idx);
-	
-	@Update("UPDATE FESTIVAL SET fComment=#{fComment} WHERE fIdx=#{idx}")
-	public void festivalModify(FestivalVO vo);
 }

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>여행 코스 조회</title>
+	<title>축제 조회</title>
  	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,76 +17,76 @@
 </header>
 
 <div class="jumbotron text-center" style="margin-top: 5rem;">
-  <h2>여행 코스 조회</h2>
-  <p>선택한 여행 코스의 설명</p> 
+  <h2>축제 조회</h2>
+  <p>선택한 축제의 설명</p> 
 </div>
 
 <div class="container">
 	<div class="row">
 			
 		<div style="margin-bottom: 50px;">
-			<a href="/courses/modify?idx=${course.tcIdx}">
+			<a href="/festivals/modify?idx=${festival.fIdx}">
 			<button type="button" class="btn btn-primary btn-md">수정</button>
 			</a>
 			
-			<a href="/courses/remove?idx=${course.tcIdx}">
+			<a href="/festivals/remove?idx=${festival.fIdx}">
 			<button type="button" class="btn btn-danger btn-md">삭제</button>
 			</a>
 			
-			<a href="/courses/list">
+			<a href="/festivals/list">
 			<button type="button" class="btn btn-dark btn-md">목록으로</button>
 			</a>
 		</div>
 		
 		<table style="width: 100%" class="col-md-12 col-sm-12 col-xs-12 table table-bordered">
 			<tr>
-				<td width="23%;">
-					<span style="float: left;">${course.tcIdx}</span>
+				<td width="20%;">
+					<span style="float: left;">${festival.fIdx}</span>
 				</td>
 				<td>
-					<span style="float: right;">${course.title}</span>
+					<span style="float: right;">${festival.title}</span>
 				</td>
 			</tr>
 			
 			<tr>
-				<td>여행 종류</td>
-				<td>${course.kind}</td>
+				<td>간단 설명</td>
+				<td>${festival.explain}</td>
 			</tr>
 			
 			<tr>
-				<td>출발지</td>
-				<td>${course.startPlace}</td>
+				<td>축제 기간</td>
+				<td><fmt:formatDate value="${festival.startDay}" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${festival.endDay}" pattern="yyyy-MM-dd"/></td>
 			</tr>
 			
 			<tr>
-				<td>교통수단</td>
-				<td>${course.traffic}</td>
+				<td>이용 요금</td>
+				<td>${festival.charge}</td>
 			</tr>
 			
 			<tr>
-				<td>여행기간</td>
-				<td>${course.travelTerm}</td>
+				<td>연락처</td>
+				<td>${festival.phone}</td>
 			</tr>
 			
 			<tr>
-				<td>상세 일정</td>
-				<td>${course.tCourse}</td>
-			</tr>
-			
-			<tr>
-				<td>여행지 및 호텔정보</td>
-				<td>${course.tTravelPlace}</td>
-			</tr>
-			
-			<tr>
-				<td>환불규정 및 주의사항</td>
-				<td>${course.tWarning}</td>
+				<td>축제 공식 사이트</td>
+				<td><a href="${festival.site}" target="_blank">${festival.site}</a></td>
 			</tr>
 			
 			<tr>
 				<td>위치</td>
-				<td>${course.latitude} & ${course.longitude}</td>
+				<td>
+				${festival.latitude} & ${festival.longitude}
+				<br>
+				${festival.address}
+				</td>
 			</tr>
+			
+			<tr>
+				<td>주최</td>
+				<td>${festival.host}</td>
+			</tr>
+			
 		</table>
 		
 	</div>

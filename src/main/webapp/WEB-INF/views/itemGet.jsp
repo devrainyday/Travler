@@ -61,7 +61,7 @@
 			</tr>
 			
 			<tr>
-				<td>여행 종류</td>
+				<td width="20%;">여행 종류</td>
 				<td>${course.kind}</td>
 			</tr>
 			
@@ -104,7 +104,7 @@
 		
 		<table style="width: 100%" class="col-md-12 col-sm-12 col-xs-12 table table-bordered">
 			<tr>
-				<td>여행 코스 번호</td>
+				<td width="20%;">여행 코스 번호</td>
 				<td>${item.tCourseNum}</td>
 			</tr>
 			<tr>
