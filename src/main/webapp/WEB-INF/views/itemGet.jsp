@@ -98,7 +98,38 @@
 			
 			<tr>
 				<td>위치</td>
-				<td><div id="map" style="width:100%;height:350px;"></div></td>
+				<td>
+				<c:choose>
+					<c:when test="${course.latitude eq '0' || course.longitude eq '0'}">없음</c:when>
+					<c:otherwise>
+						<div id="map" style="width:100%;height:350px;"></div>
+						<script>
+							var mapContainer = document.getElementById('map'),
+							    mapOption = { 
+							        center: new kakao.maps.LatLng('${course.latitude}', '${course.longitude}'),
+							        level: 3
+							    };
+							
+							var map = new kakao.maps.Map(mapContainer, mapOption);
+					
+							var mapTypeControl = new kakao.maps.MapTypeControl();
+					
+							map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+					
+							var zoomControl = new kakao.maps.ZoomControl();
+							map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+							
+							var markerPosition  = new kakao.maps.LatLng('${course.latitude}', '${course.longitude}'); 
+					
+							var marker = new kakao.maps.Marker({
+							    position: markerPosition
+							});
+							
+							marker.setMap(map);
+						</script>
+					</c:otherwise>
+				</c:choose>
+				</td>
 			</tr>
 			</table>
 		</div>
@@ -182,30 +213,5 @@
 		
 	</div>
 </div>
-
-	<script>
-		var mapContainer = document.getElementById('map'),
-		    mapOption = { 
-		        center: new kakao.maps.LatLng('${course.latitude}', '${course.longitude}'),
-		        level: 3
-		    };
-		
-		var map = new kakao.maps.Map(mapContainer, mapOption);
-
-		var mapTypeControl = new kakao.maps.MapTypeControl();
-
-		map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-
-		var zoomControl = new kakao.maps.ZoomControl();
-		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-		
-		var markerPosition  = new kakao.maps.LatLng('${course.latitude}', '${course.longitude}'); 
-
-		var marker = new kakao.maps.Marker({
-		    position: markerPosition
-		});
-		
-		marker.setMap(map);
-	</script>
 </body>
 </html>

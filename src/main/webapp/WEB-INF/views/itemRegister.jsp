@@ -14,6 +14,25 @@
     window.onload = function() { 
 		let message = document.getElementById("failMessage");
 		message.innerHTML = "";
+		
+		let today = new Date();
+		let dd = today.getDate();
+		let mm = today.getMonth()+1; //January is 0!
+		let yyyy = today.getFullYear();
+		 if(dd<10){
+		        dd='0'+dd
+		    } 
+		    if(mm<10){
+		        mm='0'+mm
+		    } 
+
+		today = yyyy+'-'+mm+'-'+dd;
+		
+		document.getElementById("startDay").setAttribute("value", today);
+		document.getElementById("endDay").setAttribute("value", today);
+		
+		document.getElementById("startDay").setAttribute("min", today);
+		document.getElementById("endDay").setAttribute("min", today);
 	}
 	
 	function chk_item(){
@@ -47,6 +66,11 @@
 			document.getElementById("tCourseNum").value = selectValue;
 			frm.submit();
 		}
+	}
+	
+	function change_endDay(){
+		document.getElementById("endDay").setAttribute("min", document.getElementById("startDay").value);
+		document.getElementById("endDay").value = document.getElementById("startDay").value;
 	}
 	</script>
 </head>
@@ -84,11 +108,11 @@
 				<div class="form-group">
 					<label>
 						출발일
-						<input onChange="change_endDay()" type="date" name="startDay" class="form-control" >
+						<input onChange="change_endDay()" type="date" id="startDay" name="startDay" class="form-control" >
 					</label>
 					<label>
 						도착일
-						<input type="date" name="endDay" class="form-control" >
+						<input type="date" id="endDay" name="endDay" class="form-control" >
 					</label>
 				</div>
 				<div class="form-group">

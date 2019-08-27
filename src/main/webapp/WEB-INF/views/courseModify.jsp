@@ -30,12 +30,12 @@
 		} else if(!frm.travelTerm.value) {
 			frm.travelTerm.focus();
 			message.innerHTML = "여행기간을 입력해주세요!";
-		} else if(!frm.latitude.value) {
+		} else if(!frm.latitude.value || isNaN(frm.latitude.value)===true) {
 			frm.latitude.focus();
-			message.innerHTML = "위치를 입력해주세요!";
-		} else if(!frm.longitude.value) {
+			message.innerHTML = "좌표를 입력해주세요!";
+		} else if(!frm.longitude.value || isNaN(frm.longitude.value)===true) {
 			frm.longitude.focus();
-			message.innerHTML = "위치를 입력해주세요!";
+			message.innerHTML = "좌표를 입력해주세요!";
 		} else {
 			frm.submit();
 		}

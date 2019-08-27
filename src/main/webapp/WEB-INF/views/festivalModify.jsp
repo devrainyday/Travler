@@ -14,6 +14,21 @@
     window.onload = function() { 
 		let message = document.getElementById("failMessage");
 		message.innerHTML = "";
+		
+		let today = new Date();
+		let dd = today.getDate();
+		let mm = today.getMonth()+1; //January is 0!
+		let yyyy = today.getFullYear();
+		 if(dd<10){
+		        dd='0'+dd
+		    } 
+		    if(mm<10){
+		        mm='0'+mm
+		    } 
+
+		today = yyyy+'-'+mm+'-'+dd;
+		
+		document.getElementById("endDay").setAttribute("min", today);
 	}
 	
 	function chk_festival(){
@@ -38,15 +53,20 @@
 		} else if(!frm.address.value) {
 			frm.address.focus();
 			message.innerHTML = "주소를 입력해주세요!";
-		} else if(!frm.latitude.value) {
+		} else if(!frm.latitude.value || isNaN(frm.latitude.value)===true) {
 			frm.latitude.focus();
-			message.innerHTML = "위치를 입력해주세요!";
-		} else if(!frm.longitude.value) {
+			message.innerHTML = "좌표를 입력해주세요!";
+		} else if(!frm.longitude.value || isNaN(frm.longitude.value)===true) {
 			frm.longitude.focus();
-			message.innerHTML = "위치를 입력해주세요!";
+			message.innerHTML = "좌표를 입력해주세요!";
 		} else {
 			frm.submit();
 		}
+	}
+	
+	function change_endDay(){
+		document.getElementById("endDay").setAttribute("min", document.getElementById("startDay").value);
+		document.getElementById("endDay").value = document.getElementById("startDay").value;
 	}
 	</script>
 </head>
@@ -101,9 +121,9 @@
 				<div class="form-group form-inline" class="form-inline">
 					<label>
 						축제 기간 &nbsp;
-						<input type="date" name="startDay" class="form-control">
+						<input onChange="change_endDay()" type="date" id="startDay" name="startDay" class="form-control" value="<fmt:formatDate value="${festival.startDay}" pattern="yyyy-MM-dd"/>">
 						&nbsp;~&nbsp;
-						<input type="date" name="endDay" class="form-control">
+						<input type="date" id="endDay" name="endDay" class="form-control" value="<fmt:formatDate value="${festival.endDay}" pattern="yyyy-MM-dd"/>">
 					</label>
 				</div>
 				
