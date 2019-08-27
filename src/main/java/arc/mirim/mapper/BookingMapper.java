@@ -19,7 +19,7 @@ public interface BookingMapper {
 	public BookingVO bookingGet(int idx);
 	
 	@Insert("INSERT INTO TRAVELBOOKING (tItemNum, bIdx, tTitle, mNum, mName, bState, warning) "
-			+ "VALUES (#{tItemNum}, IDXSEQUENCE.nextval, #{tTitle}, #{mNum}, #{mName}, #{bState}, #{warning})")
+			+ "VALUES (#{tItemNum}, TBSEQUENCE.nextval, #{tTitle}, #{mNum}, #{mName}, #{bState}, #{warning})")
 	public void bookingRegister(BookingVO vo);
 	
 	@Delete("DELETE TRAVELBOOKING WHERE tcIdx=#{idx}")

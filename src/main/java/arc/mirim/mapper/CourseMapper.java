@@ -23,7 +23,7 @@ public interface CourseMapper {
 	public List<courseNumVO> courseGetTitle();
 	
 	@Insert("INSERT INTO TRAVELCOURSE (tcIdx, title, kind, startPlace, traffic, travelTerm, tCourse, tTravelPlace, tWarning, latitude, longitude) "
-			+ "VALUES (IDXSEQUENCE.nextval, #{title}, #{kind}, #{startPlace}, #{traffic}, #{travelTerm}, #{tCourse}, #{tTravelPlace}, #{tWarning}, #{latitude}, #{longitude})")
+			+ "VALUES (TCSEQUENCE.nextval, #{title}, #{kind}, #{startPlace}, #{traffic}, #{travelTerm}, #{tCourse}, #{tTravelPlace}, #{tWarning}, #{latitude}, #{longitude})")
 	public void courseRegister(CourseVO vo);
 	
 	@Delete("DELETE TRAVELCOURSE WHERE tcIdx=#{idx}")

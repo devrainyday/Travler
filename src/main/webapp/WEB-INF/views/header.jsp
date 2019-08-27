@@ -24,7 +24,7 @@
 <body>
 <div class="wrap" style="position: absolute; margin: 0; padding: 0; margin-left: 5%;">
 	<div class="header_main header_logo" style="position: absolute; margin: 0; padding: 0;">
-		<a href="index.jsp"> <img src="<c:url value="/resources/travler_logo.png" />" style="margin-top: 10px; width: 80px; height: 80px;">	</a>
+		<a href="/index.jsp"> <img src="<c:url value="/resources/travler_logo.png" />" style="margin-top: 10px; width: 80px; height: 80px;">	</a>
 	</div>
 	
 	<nav class="header_main" style="width: 100%; margin-left: 13%;">

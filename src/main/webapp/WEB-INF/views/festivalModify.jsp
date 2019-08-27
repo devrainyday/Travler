@@ -84,7 +84,7 @@
 				<div class="form-group">
 				<label>
 					연락처
-					<input type="text" name="phone" class="form-control" value="${festival.phone}" maxlength="15">
+					<input type="text" name="phone" class="form-control" value="${festival.phone}" maxlength="15" placeholder="'-' 와 함께 입력해주세요">
 				</label>
 				</div>
 				

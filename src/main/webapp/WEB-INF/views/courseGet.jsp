@@ -9,6 +9,8 @@
  	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e794a87025ae465cf1403850435b762e"></script>
 </head>
 <body>
 
@@ -23,7 +25,7 @@
 
 <div class="container">
 	<div class="row">
-			
+	
 		<div style="margin-bottom: 50px;">
 			<a href="/courses/modify?idx=${course.tcIdx}">
 			<button type="button" class="btn btn-primary btn-md">수정</button>
@@ -85,11 +87,37 @@
 			
 			<tr>
 				<td>위치</td>
-				<td>${course.latitude} & ${course.longitude}</td>
+				<td>
+				<div id="map" style="width:100%;height:350px;"></div>
+				</td>
 			</tr>
 		</table>
 		
 	</div>
 </div>
+	<script>
+		var mapContainer = document.getElementById('map'),
+		    mapOption = { 
+		        center: new kakao.maps.LatLng('${course.latitude}', '${course.longitude}'),
+		        level: 3
+		    };
+		
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+
+		var mapTypeControl = new kakao.maps.MapTypeControl();
+
+		map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+		var zoomControl = new kakao.maps.ZoomControl();
+		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+		
+		var markerPosition  = new kakao.maps.LatLng('${course.latitude}', '${course.longitude}'); 
+
+		var marker = new kakao.maps.Marker({
+		    position: markerPosition
+		});
+		
+		marker.setMap(map);
+	</script>
 </body>
 </html>

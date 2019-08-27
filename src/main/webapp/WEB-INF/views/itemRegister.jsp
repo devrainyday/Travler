@@ -92,7 +92,7 @@
 					</label>
 					<label>
 						담당자 연락처
-						<input type="text" name="managerCall" class="form-control" maxlength="15">
+						<input type="text" name="managerCall" class="form-control" maxlength="15" placeholder="'-' 와 함께 입력해주세요">
 					</label>
 				</div>
 				

@@ -19,7 +19,7 @@ public interface FestivalMapper {
 	public FestivalVO festivalGet(int idx);
 	
 	@Insert("INSERT INTO FESTIVAL (fIdx, title, explain, startDay, endDay, charge, host, address, latitude, longitude, phone, site) "
-			+ "VALUES (IDXSEQUENCE.nextval, #{title}, #{explain}, #{startDay}, #{endDay}, #{charge}, #{host}, #{address}, #{latitude}, #{longitude}, #{phone}, #{site})")
+			+ "VALUES (FSEQUENCE.nextval, #{title}, #{explain}, #{startDay}, #{endDay}, #{charge}, #{host}, #{address}, #{latitude}, #{longitude}, #{phone}, #{site})")
 	public void festivalRegister(FestivalVO vo);
 	
 	@Update("UPDATE FESTIVAL SET "

@@ -20,7 +20,7 @@ public interface MemberMapper {
     public MemberVO signin(SigninDTO dto);
     
     @Insert("INSERT INTO MEMBER (mIdx, id, pwd, name, email, phone) "
-    		+ "VALUES (IDXSEQUENCE.nextval, #{signupId}, #{signupPwd}, #{signupName}, #{signupEmail}, #{signupPhone})")
+    		+ "VALUES (MSEQUENCE.nextval, #{signupId}, #{signupPwd}, #{signupName}, #{signupEmail}, #{signupPhone})")
     public void registerMember(MemberVO vo);
     
     @Update("UPDATE MEMBER SET travelNum=#{travel_num} WHERE id = #{userId}")
