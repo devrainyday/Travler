@@ -3,8 +3,7 @@ package arc.mirim.domain;
 public class SigninDTO {
     private String signinId;
     private String signinPwd;
-    private boolean signinCookie;
-
+    private String signinName;
 
     public String getSigninId() {
         return this.signinId;
@@ -22,26 +21,16 @@ public class SigninDTO {
         this.signinPwd = signinPwd;
     }
 
-    public boolean isSigninCookie() {
-        return this.signinCookie;
-    }
+	public String getSigninName() {
+		return signinName;
+	}
 
-    public boolean getSigninCookie() {
-        return this.signinCookie;
-    }
+	public void setSigninName(String signinName) {
+		this.signinName = signinName;
+	}
 
-    public void setSigninCookie(boolean signinCookie) {
-        this.signinCookie = signinCookie;
-    }
-
-
-    @Override
-    public String toString() {
-        return "{" +
-            " signinId='" + getSigninId() + "'" +
-            ", signinPwd='" + getSigninPwd() + "'" +
-            ", signinCookie='" + isSigninCookie() + "'" +
-            "}";
-    }
-
+	@Override
+	public String toString() {
+		return "SigninDTO [signinId=" + signinId + ", signinPwd=" + signinPwd + ", signinName=" + signinName + "]";
+	}
 }

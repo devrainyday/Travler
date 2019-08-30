@@ -131,15 +131,12 @@ div.sign_box {
 	right: 5%;
 	bottom: 5%;
 	width: 500px;
-	height: 250px;
+	height: 350px;
+	padding: 20px 50px;
 	border-top: solid 10px #6DC1FF;
 	-webkit-box-shadow:0 2px 2px rgba(0,0,0,.15);
 	box-shadow:0 2px 2px rgba(0,0,0,.15);
 	z-index: 200;
-}
-
-.frm_sign div.wrap {
-	margin: 20px 50px;
 }
 
 .frm_sign label {
@@ -149,21 +146,6 @@ div.sign_box {
     font-weight: 600;
     margin: 15px 0;
     display: block;
-}
-
-.frm_sign input {
-    display: block;
-    width: 100%;
-    height: 20px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 17px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    padding: 2px;
-}
-
-.frm_sign input[type="submit"] {
-	height: 40px;
 }
 
  .frm_sign textarea {
@@ -206,18 +188,6 @@ div.sign_box {
      font-size: 15px;
  }
  
-  .frm_sign input[id="email_save"] {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #bcbcbc;
-  }
-  
-  .frm_sign input[id="email_save"]:checked {
-    background: #ff0000;
-  }
-
-
 @media all and (min-width:768px) and (max-width:1024px) {
     div.wrap {
 		margin-left: 12%;
@@ -237,53 +207,23 @@ div.sign_box {
 		margin-left: 5%;
 	}
 }
-	
 
-.btn{
-    -webkit-transition: all 0.6s;
-    transition: all 0.6s;
-    text-transform: uppercase;
-    font-size: 16px;
-    font-weight: 800;
-    letter-spacing: 2.5px;
+.btn_main {
+    background: #8accff;
+    color: white;
     border-radius: 0;
-    border:1px solid;
-    height: 50px;
-    line-height: 10px;
-    padding: 0.8rem 2rem;
 }
-
-.btn:hover{
-    color:#fff;
-    border:1px solid;
-}
-
-.btn-already{
-    color: #000;
-    background: white;
-}
-.btn-already:hover{
-    color: #000;
-    background: white;
-}
-
-.btn-default{
-    border: 1px #f5f5f5 solid;
-    background-color: transparent;
+.btn_main:hover {
+    background-color: white;
     color:#3BABFD;
-    border-radius: 0;
-}
-.btn-default:hover{
-    border-color:#3BABFD;
-    background-color: #3BABFD;
 }
 
-.btn-primary{
+.btn_sub {
     color: #fff;
     background-color: #3BABFD;
     border:1px #3BABFD solid;
 }
-.btn-primary:hover{
+.btn_sub:hover{
     background-color: #eee;
     border-color: #eee;
     color:#3BABFD;

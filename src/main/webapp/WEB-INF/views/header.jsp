@@ -23,23 +23,24 @@
 
 </head>
 <body>
+
 <div class="wrap" style="position: absolute; margin: 0; padding: 0; margin-left: 5%;">
 	<div class="header_main header_logo" style="position: absolute; margin: 0; padding: 0;">
-		<a href="/index.jsp"> <img src="<c:url value="/resources/travler_logo.png" />" style="margin-top: 10px; width: 80px; height: 80px;">	</a>
+		<a href="/"> <img src="<c:url value="/resources/travler_logo.png" />" style="margin-top: 10px; width: 80px; height: 80px;">	</a>
 	</div>
 	
 	<nav class="header_main" style="width: 100%; margin-left: 13%;">
 		<div id="cssmenu">
-			<ul>
+			<ul>s
 			   <li class="active"><a href="/courses/list"><span>Course</span></a></li>
 			   <li><a href="/items/list"><span>Item</span></a></li>
 			   <li><a href="/festivals/list"><span>Festival</span></a></li>
 			   <li class="last"><a href="/admin"><span>Admin Page</span></a></li>
-			   
+
 			   <li class="active"><a href="/travel/all"><span>전체 여행</span></a></li>
-			   <li><a href="/travel/bus"><span>버스여행</span></a></li>
-			   <li><a href="/travel/train"><span>기차여행</span></a></li>
-			   <li><a href="/travel/island"><span>섬여행</span></a></li>
+			   <li><a href="/travels/bus"><span>버스여행</span></a></li>
+			   <li><a href="/travels/train"><span>기차여행</span></a></li>
+			   <li><a href="/travels/island"><span>섬여행</span></a></li>
 			   <li class="last"><a href="/festival/board"><span>축제 방문록</span></a></li>
 			</ul>
 		</div>

@@ -3,21 +3,13 @@ package arc.mirim.domain;
 import java.util.Date;
 
 public class MemberVO {
-    private int mIdx;
     private String id;
     private String pwd;
     private String name;
     private String email;
     private String phone;
-    private int travelNum;
     private Date joinDate;
     
-	public int getmIdx() {
-		return mIdx;
-	}
-	public void setmIdx(int mIdx) {
-		this.mIdx = mIdx;
-	}
 	public String getId() {
 		return id;
 	}
@@ -48,12 +40,6 @@ public class MemberVO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public int getTravelNum() {
-		return travelNum;
-	}
-	public void setTravelNum(int travelNum) {
-		this.travelNum = travelNum;
-	}
 	public Date getJoinDate() {
 		return joinDate;
 	}
@@ -63,7 +49,7 @@ public class MemberVO {
 	
 	@Override
 	public String toString() {
-		return "MemberVO [mIdx=" + mIdx + ", id=" + id + ", pwd=" + pwd + ", name=" + name + ", email="
-				+ email + ", phone=" + phone + ", travelNum=" + travelNum + ", joinDate=" + joinDate + "]";
+		return "MemberVO [id=" + id + ", pwd=" + pwd + ", name=" + name + ", email=" + email + ", phone=" + phone
+				+ ", joinDate=" + joinDate + "]";
 	}
 }

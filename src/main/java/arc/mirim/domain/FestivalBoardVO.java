@@ -5,9 +5,8 @@ import java.util.Date;
 public class FestivalBoardVO {
 	private int fetivalNum;
 	private int fbIdx;
-	private int memberNum;
-	private String memberName;
 	private String memberId;
+	private String memberName;
 	private String fComment;
 	private Date boardDate;
 	
@@ -23,23 +22,17 @@ public class FestivalBoardVO {
 	public void setfbIdx(int fbIdx) {
 		this.fbIdx = fbIdx;
 	}
-	public int getMemberNum() {
-		return memberNum;
+	public String getMemberId() {
+		return memberId;
 	}
-	public void setMemberNum(int memberNum) {
-		this.memberNum = memberNum;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 	public String getMemberName() {
 		return memberName;
 	}
 	public void setMemberName(String memberName) {
 		this.memberName = memberName;
-	}
-	public String getMemberId() {
-		return memberId;
-	}
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
 	}
 	public String getfComment() {
 		return fComment;
@@ -56,8 +49,7 @@ public class FestivalBoardVO {
 	
 	@Override
 	public String toString() {
-		return "festivalBoardVO [fetivalNum=" + fetivalNum + ", fbIdx=" + fbIdx + ", memberNum="
-				+ memberNum + ", memberName=" + memberName + ", memberId=" + memberId + ", fComment="
-				+ fComment + ", boardDate=" + boardDate + "]";
+		return "FestivalBoardVO [fetivalNum=" + fetivalNum + ", fbIdx=" + fbIdx + ", memberName=" + memberName
+				+ ", memberId=" + memberId + ", fComment=" + fComment + ", boardDate=" + boardDate + "]";
 	}
 }
