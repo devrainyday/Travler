@@ -38,6 +38,6 @@
 		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
 	</bean>
 	
-	<!-- @Transactional 애노테이션을 sacn하기 위한 설정 -->
+	<!-- @Transactional 애노테이션을 scan하기 위한 설정 -->
 	<tx:annotation-driven/>
 </beans>

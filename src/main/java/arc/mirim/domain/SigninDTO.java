@@ -1,36 +1,31 @@
 package arc.mirim.domain;
 
 public class SigninDTO {
-    private String signinId;
-    private String signinPwd;
-    private String signinName;
-
-    public String getSigninId() {
-        return this.signinId;
-    }
-
-    public void setSigninId(String signinId) {
-        this.signinId = signinId;
-    }
-
-    public String getSigninPwd() {
-        return this.signinPwd;
-    }
-
-    public void setSigninPwd(String signinPwd) {
-        this.signinPwd = signinPwd;
-    }
-
-	public String getSigninName() {
-		return signinName;
+    private String id;
+    private String pwd;
+    private String name;
+    
+	public String getId() {
+		return id;
 	}
-
-	public void setSigninName(String signinName) {
-		this.signinName = signinName;
+	public void setId(String id) {
+		this.id = id;
 	}
-
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	@Override
 	public String toString() {
-		return "SigninDTO [signinId=" + signinId + ", signinPwd=" + signinPwd + ", signinName=" + signinName + "]";
+		return "SigninDTO [id=" + id + ", pwd=" + pwd + ", name=" + name + "]";
 	}
 }

@@ -1,6 +1,8 @@
 package arc.mirim.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import arc.mirim.domain.MemberVO;
 import arc.mirim.domain.SigninDTO;
+import arc.mirim.mapper.MemberMapper;
 import arc.mirim.service.MemberService;
 
 @Controller
@@ -34,14 +37,17 @@ public class AuthController {
 	@PostMapping("/signin")
 	public String signinPost(SigninDTO dto, HttpServletRequest request) {
 		System.out.println("it's signin post");
+		System.out.println(dto);
 		SigninDTO signinDto = memberS.Signin(dto);
+		System.out.println(signinDto);
 		if(signinDto==null) {
 			System.out.println("로그인에 실패했습니다");
 		} else {
-			request.getSession().setAttribute("id", signinDto.getSigninId());
-			request.getSession().setAttribute("name", signinDto.getSigninName());
+			System.out.println("로그인에 성공했습니다");
+			request.getSession().setAttribute("sessionId", signinDto.getId());
+			request.getSession().setAttribute("sessionName", signinDto.getName());
 		}
-		return "redirect:/index";
+		return "redirect:/";
 	}
 	
 	@GetMapping("/signup")
@@ -54,20 +60,24 @@ public class AuthController {
 	public String signupPost(MemberVO vo) {
 		System.out.println("it's signup post");
 		memberS.Signup(vo);
-		return "redirect:/index";
+		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "/signup/idCheck", method = RequestMethod.GET)
+	@GetMapping("/signup/idCheck")
 	@ResponseBody
-	public int idCheck(@RequestParam("userId") String userId) {
-		return memberS.memberIdChk(userId);
+	public Map<Object, Object> idCheck(@RequestParam("userId") String userId) {
+		int count = 0;
+        Map<Object, Object> map = new HashMap<Object, Object>();
+        count = memberS.memberIdChk(userId);
+        map.put("cnt", count);
+		return map;
 	}
 	
 	@PostMapping("/signout")
 	public String signoutPost(HttpServletRequest request) {
 		System.out.println("it's signout post");
-		request.getSession().removeAttribute("id");
-		request.getSession().removeAttribute("name");
-		return "redirect:/index";
+		request.getSession().removeAttribute("sessionId");
+		request.getSession().removeAttribute("sessionName");
+		return "redirect:/";
 	}
 }

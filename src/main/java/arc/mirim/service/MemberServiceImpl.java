@@ -1,6 +1,8 @@
 package arc.mirim.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,18 +33,15 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	MemberService memberS;
 	
-	@Autowired
-	private SqlSessionTemplate userSqlSession;
-
 	@Override
 	public int memberIdChk(String id) {
-		memberS = userSqlSession.getMapper(MemberService.class);
 		return memberMapper.signupChk(id);
 	}
 	
 	@Override
 	public SigninDTO Signin(SigninDTO dto) {
 		System.out.println("signin");
+		System.out.println(dto);
 		return memberMapper.signin(dto);
 	}
 

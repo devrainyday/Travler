@@ -19,7 +19,7 @@ public interface MemberMapper {
     @Select("SELECT * FROM MEMBER WHERE id=#{id}")
     public MemberVO memberGet(String id);
     
-    @Select("SELECT * FROM MEMBER WHERE id=#{signinId} AND pwd=#{signinPwd}")
+    @Select("SELECT * FROM MEMBER WHERE id=#{id} AND pwd=#{pwd}")
     public SigninDTO signin(SigninDTO dto);
     
     @Select("SELECT COUNT(*) FROM MEMBER WHERE id=#{id}")

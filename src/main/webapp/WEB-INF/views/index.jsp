@@ -3,7 +3,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +10,24 @@
  	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script>
+    function chk_signin() {
+    	let frm = document.frm_signin;
+    	let message = document.getElementById("failMessage");
+    	
+    	if(!frm.id.value) {
+    		frm.id.focus();
+    		message.innerHTML = "아이디를 입력해주세요!";
+    	} else if(!frm.pwd.value) {
+    		frm.pwd.focus();
+    		message.innerHTML = "비밀번호를 입력해주세요!";
+    	} else {
+    		frm.submit();
+    	}
+    }
+    </script>
 </head>
-
-<%
-	String title = "메인 페이지";
-%>
 
 <body>
 
@@ -23,32 +35,37 @@
   	<jsp:include page="header.jsp" flush="false" />
 </header>
 
-<div>
-	<form class="frm_sign" action="/signout" method="post">
-		<input type="submit" class="btn btn-default" value="로그아웃">
-	</form>
-</div>
 
 <div class="sign_box">
-	<form class="frm_sign" class="form-control" action="/signin" method="post">
+	<% if((String)session.getAttribute("sessionId") == null) { %>
+	<form class="frm_sign" class="form-control" action="/signin" method="post" name="frm_signin">
 		<div class="form-group">
 			<label>
 				ID 
-				<input type="text" name="signinId" class="form-control">
+				<input type="text" name="id" class="form-control">
 			</label>
 			
 			<label>
-				비밀번호 
-				<input type="password" name="signinPwd" class="form-control">
+				비밀번호
+				<input type="password" name="pwd" class="form-control">
 			</label>
 			
-			<input type="submit" class="form-control btn btn_main" value="로그인">
+			<div>
+				<span id="failMessage" style="color: red;"></span>
+			</div>
 			
-			<a href="/signup" style="display:block;">
-				<input type="button" class="form-control btn btn_sub" value="회원가입" style="border: none;">
+			<button type="button" onClick="chk_signin()" onClick="chk_signin()" class="form-control btn_main">로그인</button>
+			
+			<a href="/signup" style="text-decoration: none;">
+				<button class="form-control btn_sub">회원가입</button>
 			</a>
 		</div>
 	</form>
+	<% } else { %>
+	<form class="frm_sign" action="/signout" method="post">
+		<input type="submit" class="btn btn_sub" value="로그아웃">
+	</form>
+	<% } %>
 </div>
 
 </body>
