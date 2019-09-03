@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import arc.mirim.domain.FestivalVO;
+import arc.mirim.domain.festivalNumVO;
 
 public interface FestivalMapper {
 	// FESTIVAL
@@ -17,6 +18,9 @@ public interface FestivalMapper {
 	
 	@Select("SELECT * FROM FESTIVAL WHERE fIdx=#{idx}")
 	public FestivalVO festivalGet(int idx);
+	
+	@Select("SELECT fIdx, title FROM FESTIVAL")
+	public List<festivalNumVO> festivalGetTitle();
 	
 	@Insert("INSERT INTO FESTIVAL (fIdx, title, explain, startDay, endDay, charge, host, address, latitude, longitude, phone, site) "
 			+ "VALUES (FSEQUENCE.nextval, #{title}, #{explain}, #{startDay}, #{endDay}, #{charge}, #{host}, #{address}, #{latitude}, #{longitude}, #{phone}, #{site})")

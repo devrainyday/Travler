@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import arc.mirim.domain.FestivalBoardVO;
 import arc.mirim.domain.FestivalVO;
+import arc.mirim.domain.festivalNumVO;
 import arc.mirim.mapper.FestivalMapper;
 
 @Service
@@ -44,4 +46,8 @@ public class FestivalServiceImpl implements FestivalService {
 		System.out.println(vo);
 	}
 
+	@Override
+	public List<festivalNumVO> festivalTitleGet() {
+		return festivalMapper.festivalGetTitle();
+	}
 }
