@@ -22,4 +22,40 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="arc.mirim.controller" />
+	
+	<context:component-scan base-package="arc.mirim.interceptor">	
+	</context:component-scan>
+	
+	<beans:bean id="signAuthInterceptor" class="arc.mirim.interceptor.SignAuthInterceptor" />
+	<beans:bean id="adminAuthInterceptor" class="arc.mirim.interceptor.AdminAuthInterceptor" />
+	<beans:bean id="memberAuthInterceptor" class="arc.mirim.interceptor.MemberAuthInterceptor" />
+	
+	<!-- signup, signin 메뉴에는 session 있는 사람이 접근하면 안됨
+	admin 메뉴에는 admin인 사람을 제외하고는 전부 접근하면 안됨
+	회원 메뉴에는 회원인 사람을 제외하고는 전부 접근하면 안됨
+	하지만, 회원 메뉴 중 list에는 session이 없더라도 접근할 수 있음 -->
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/courses/*" />
+			<mapping path="/items/*" />
+			<mapping path="/festivals/*" />
+			
+			<beans:ref bean="adminAuthInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/travels/*" />
+			<mapping path="/festivalBoards/*" />
+			
+			<beans:ref bean="memberAuthInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/signup" />
+			<mapping path="/signin" />
+			
+			<beans:ref bean="signAuthInterceptor"/>
+		</interceptor>
+	</interceptors>
 </beans:beans>

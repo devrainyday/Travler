@@ -26,6 +26,11 @@
     		frm.submit();
     	}
     }
+    
+    <% if((String)session.getAttribute("message") != null) { %>
+    		alert(<%=(String)session.getAttribute("message") %>);
+    		<% session.removeAttribute("message"); %>
+    <% } %>
     </script>
 </head>
 
