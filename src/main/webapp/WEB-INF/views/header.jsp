@@ -55,14 +55,14 @@
 			   <li><a href="/travels/bus"><span>버스여행</span></a></li>
 			   <li><a href="/travels/train"><span>기차여행</span></a></li>
 			   <li><a href="/travels/island"><span>섬여행</span></a></li>
-			   <li class="last"><a href="/festival/board"><span>축제 방문록</span></a></li>
+			   <li class="last"><a href="/festivalBoards/"><span>축제 방문록</span></a></li>
 		   		<% } %>
 			<% } else { %>
 			   <li class="active"><a href="/travel/all"><span>전체 여행</span></a></li>
 			   <li><a href="/travels/bus"><span>버스여행</span></a></li>
 			   <li><a href="/travels/train"><span>기차여행</span></a></li>
 			   <li><a href="/travels/island"><span>섬여행</span></a></li>
-			   <li class="last"><a href="/festival/board"><span>축제 방문록</span></a></li>
+			   <li class="last"><a href="/festivalBoards/"><span>축제 방문록</span></a></li>
 			<% } %>
 			</ul>
 		</div>

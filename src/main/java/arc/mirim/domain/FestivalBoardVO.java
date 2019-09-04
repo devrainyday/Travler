@@ -3,23 +3,23 @@ package arc.mirim.domain;
 import java.util.Date;
 
 public class FestivalBoardVO {
-	private int fetivalNum;
+	private int festivalNum;
 	private int fbIdx;
 	private String memberId;
 	private String memberName;
 	private String fComment;
 	private Date boardDate;
 	
-	public int getFetivalNum() {
-		return fetivalNum;
+	public int getFestivalNum() {
+		return festivalNum;
 	}
-	public void setFetivalNum(int fetivalNum) {
-		this.fetivalNum = fetivalNum;
+	public void setFestivalNum(int festivalNum) {
+		this.festivalNum = festivalNum;
 	}
-	public int getfbIdx() {
+	public int getFbIdx() {
 		return fbIdx;
 	}
-	public void setfbIdx(int fbIdx) {
+	public void setFbIdx(int fbIdx) {
 		this.fbIdx = fbIdx;
 	}
 	public String getMemberId() {
@@ -49,7 +49,7 @@ public class FestivalBoardVO {
 	
 	@Override
 	public String toString() {
-		return "FestivalBoardVO [fetivalNum=" + fetivalNum + ", fbIdx=" + fbIdx + ", memberName=" + memberName
-				+ ", memberId=" + memberId + ", fComment=" + fComment + ", boardDate=" + boardDate + "]";
+		return "FestivalBoardVO [festivalNum=" + festivalNum + ", fbIdx=" + fbIdx + ", memberId=" + memberId
+				+ ", memberName=" + memberName + ", fComment=" + fComment + ", boardDate=" + boardDate + "]";
 	}
 }

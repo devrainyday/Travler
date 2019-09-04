@@ -14,8 +14,8 @@ public interface FestivalBoardMapper {
 	@Select("SELECT * FROM FESTIVALBOARD")
 	public List<FestivalBoardVO> festivalBoardGetAll();
 	
-	@Insert("INSERT INTO FESTIVALBOARD (fbIdx, fetivalNum, memberId, memberName, fComment) "
-			+ "VALUES (FBSEQUENCE.nextval, #{fetivalNum}, #{memberId}, #{memberName}, #{fComment})")
+	@Insert("INSERT INTO FESTIVALBOARD (fbIdx, festivalNum, memberId, memberName, fComment) "
+			+ "VALUES (FBSEQUENCE.nextval, #{festivalNum}, #{memberId}, #{memberName}, #{fComment})")
 	public void festivalBoardRegister(FestivalBoardVO vo);
 	
 	@Update("UPDATE FESTIVALBOARD SET fComment=#{fComment} WHERE fbIdx=#{idx}")

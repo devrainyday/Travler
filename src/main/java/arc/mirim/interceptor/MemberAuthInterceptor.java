@@ -24,8 +24,9 @@ public class MemberAuthInterceptor extends HandlerInterceptorAdapter {
 		}
 		
 		if(session.getAttribute("sessionId") == null) {
+			session.setAttribute("message", "이 페이지에 접근하시려면 로그인 해주세요!");
 			System.out.println("이 페이지에 접근하시려면 로그인 해주세요!");
-			response.sendRedirect("/signin");
+			response.sendRedirect("/");
 		    return false;
 		}
 		

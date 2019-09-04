@@ -48,7 +48,7 @@ public class FestivalBoardController {
 	    });
 	}
 	
-	@GetMapping("/list")
+	@GetMapping("/")
 	public String list(Model model) {
 		System.out.println("it's festival board list get");
 		List<FestivalBoardVO> festivalBoardList = festivalBoardS.festivalBoardGetAll();
@@ -62,27 +62,27 @@ public class FestivalBoardController {
 		model.addAttribute("festivalList", festivalList);
 		model.addAttribute("festivalTitle", festivalTitle);
 		model.addAttribute("list", festivalBoardList);
-		return "/festivalBoardList";
+		return "/festivalBoard";
 	}
 	
 	@PostMapping("/register")
 	public String register(FestivalBoardVO vo) {
 		System.out.println("it's festival board register post");
 		festivalBoardS.festivalBoardRegister(vo);
-		return "redirect:/festivalBoards/list";
+		return "redirect:/";
 	}
 	
 	@PostMapping("/modify")
 	public String modify(FestivalBoardVO vo) {
 		System.out.println("it's festival board modify post");
 		festivalBoardS.festivalBoardModify(vo);
-		return "redirect:/festivalBoards/list";
+		return "redirect:/";
 	}
 	
 	@PostMapping("/remove")
 	public String remove(@RequestParam("idx") int idx) {
 		System.out.println("it's festival board remove get");
 		festivalBoardS.festivalBoardRemove(idx);
-		return "redirect:/festivalBoards/list";
+		return "redirect:/";
 	}
 }

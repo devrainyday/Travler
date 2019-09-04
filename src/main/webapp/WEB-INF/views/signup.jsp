@@ -90,33 +90,41 @@ function chk_signup() {
 		<div>
 			<span id="idMessage" style="color: red;"></span>
 		</div>
-		
+	</div>
+	
+	<div class="form-group">
 		<label>
 			비밀번호 
 			<input type="password" name="pwd" maxlength="20">
 		</label>
+	</div>
 		
+	<div class="form-group">
 		<label>
 			이름
 			<input type="text" name="name" maxlength="10">
 		</label>
+	</div>
 		
+	<div class="form-group">
 		<label>
 			이메일
 			<input type="email" name="email" maxlength="50">
 		</label>
+	</div>
 		
+	<div class="form-group">
 		<label>
 			연락처
 			<input type="text" name="phone" placeholder="'-' 를 포함하여 입력해주세요" maxlength="15">
 		</label>
+	</div>
 		
 		<div>
 			<span id="failMessage" style="color: red;"></span>
 		</div>
 		
 		<button type="button" onClick="chk_signup()" id="signupSubmit" class="btn btn-primary">회원가입</button>
-	</div>
 </form>
 </body>
 </html>
