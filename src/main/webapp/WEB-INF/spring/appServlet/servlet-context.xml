@@ -39,7 +39,9 @@
 		<interceptor>
 			<mapping path="/courses/*" />
 			<mapping path="/items/*" />
-			<mapping path="/festivals/*" />
+			<mapping path="/festivals/list" />
+			<mapping path="/festivals/register" />
+			<mapping path="/festivals/modify" />
 			
 			<beans:ref bean="adminAuthInterceptor"/>
 		</interceptor>

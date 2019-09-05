@@ -58,7 +58,7 @@
 					연락처 : ${festival.phone}
 					
 					<div class="col-md-12" style="margin-top: 30px;">
-				    <button type="button" onClick="changeDiv()"  class="btn btn-primary">축제 정보 보기</button>
+				    <a href="/festivals/get?idx=<c:out value="${festival.fIdx}" />" class="btn btn-info">축제 정보 더 보기</a>
 				    <button type="button" id="changeValue" value="<c:out value="${festival.fIdx}" />" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">축제 방명록 작성</button>
 			    	</div>
 			    </div>
@@ -105,11 +105,8 @@
 						작성자 정보
 						<input type="text" value="<%= session.getAttribute("sessionId") %> (<%= session.getAttribute("sessionName") %>)" class="form-control" readonly>
 					</label>
-					<div style="display: none;">
-						<input type="number" name="memberNum" value="<c:out value='${session.getAttribute("sessionNum")}' />">
-					</div>
-					<input type="hidden" name="memberId" value="<c:out value='${session.getAttribute("sessionId")}' />">
-					<input type="hidden" name="memberName" value="<c:out value='${session.getAttribute("sessionName")}' />">
+					<input type="hidden" name="memberId" value="<%= session.getAttribute("sessionId") %>">
+					<input type="hidden" name="memberName" value="<%= session.getAttribute("sessionName") %>">
 				</div>
 				
 				<div class="form-group">

@@ -25,19 +25,26 @@
 
 <div class="container">
 	<div class="row">
-			
 		<div style="margin-bottom: 50px;">
-			<a href="/festivals/modify?idx=${festival.fIdx}">
-			<button type="button" class="btn btn-primary btn-md">수정</button>
-			</a>
-			
-			<a href="/festivals/remove?idx=${festival.fIdx}">
-			<button type="button" class="btn btn-danger btn-md">삭제</button>
-			</a>
-			
-			<a href="/festivals/list">
-			<button type="button" class="btn btn-dark btn-md">목록으로</button>
-			</a>
+		<% if((String)session.getAttribute("sessionId") != null) { %>
+		 	<% if(((String)session.getAttribute("sessionId")).equals("admin")) { %>
+				<a href="/festivals/modify?idx=${festival.fIdx}">
+				<button type="button" class="btn btn-primary btn-md">수정</button>
+				</a>
+				
+				<a href="/festivals/remove?idx=${festival.fIdx}">
+				<button type="button" class="btn btn-danger btn-md">삭제</button>
+				</a>
+				
+				<a href="/festivals/list">
+				<button type="button" class="btn btn-dark btn-md">목록으로</button>
+				</a>
+			<% } else { %>
+				<a href="/festivalBoards/">
+				<button type="button" class="btn btn-dark btn-md">목록으로</button>
+				</a>
+			<% } %>
+		<% } %>
 		</div>
 		
 		<table style="width: 100%" class="col-md-12 col-sm-12 col-xs-12 table table-bordered">

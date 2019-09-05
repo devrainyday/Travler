@@ -69,20 +69,20 @@ public class FestivalBoardController {
 	public String register(FestivalBoardVO vo) {
 		System.out.println("it's festival board register post");
 		festivalBoardS.festivalBoardRegister(vo);
-		return "redirect:/";
+		return "redirect:/festivalBoards/";
 	}
 	
 	@PostMapping("/modify")
 	public String modify(FestivalBoardVO vo) {
 		System.out.println("it's festival board modify post");
 		festivalBoardS.festivalBoardModify(vo);
-		return "redirect:/";
+		return "redirect:/festivalBoards/";
 	}
 	
 	@PostMapping("/remove")
 	public String remove(@RequestParam("idx") int idx) {
 		System.out.println("it's festival board remove get");
 		festivalBoardS.festivalBoardRemove(idx);
-		return "redirect:/";
+		return "redirect:/festivalBoards/";
 	}
 }
