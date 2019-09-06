@@ -79,7 +79,7 @@ public class FestivalBoardController {
 		return "redirect:/festivalBoards/";
 	}
 	
-	@PostMapping("/remove")
+	@GetMapping("/remove")
 	public String remove(@RequestParam("idx") int idx) {
 		System.out.println("it's festival board remove get");
 		festivalBoardS.festivalBoardRemove(idx);

@@ -49,7 +49,7 @@
 		<interceptor>
 			<mapping path="/travels/*" />
 			<mapping path="/festivalBoards/*" />
-			
+			s
 			<beans:ref bean="memberAuthInterceptor"/>
 		</interceptor>
 		

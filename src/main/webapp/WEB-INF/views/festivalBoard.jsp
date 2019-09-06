@@ -64,18 +64,42 @@
 			    </div>
 			  </div>
 		</div>
-			  
-			  <div>
-			  	
-			  
-			  </div>
 		</c:forEach>
 		
 		<div class="col-md-12" style="margin-top: 50px;">
 			<h3>축제 방명록</h3>
 		</div>
+		
 		<c:forEach items="${list}" var="festivalBoard">
-				
+		<div class="col-md-4">
+			<div class="card">
+			    <div class="card-header">
+			    <c:forEach items="${festivalList}" var="festival">
+				    <c:if test="${festivalBoard.festivalNum eq festival.fIdx}">
+			    		${festival.title}
+			    	</c:if>
+			    </c:forEach>
+			    
+			    <br>
+			    
+			    <fmt:formatDate value="${festivalBoard.boardDate}" pattern="yyyy-MM-dd"/>
+			    </div>
+			    <div class="card-body">
+			    	작성자 : ${festivalBoard.memberId} ( ${festivalBoard.memberName} )
+					<br>
+					${festivalBoard.fComment}
+					<br>
+					
+					<c:set var="userId" value="${festivalBoard.memberId}" />
+					<% String userId = (String)pageContext.getAttribute("userId"); %>
+					<% if(((String)session.getAttribute("sessionId")).equals(userId)) { %>
+						<a href="/festivalBoards/remove?idx=${festivalBoard.fbIdx}">
+						<button class="btn btn-danger">방명록 삭제</button>
+						</a>
+					<% } %>
+			    </div>
+		  	</div>
+		</div>
 		</c:forEach>
 	</div>
 	
