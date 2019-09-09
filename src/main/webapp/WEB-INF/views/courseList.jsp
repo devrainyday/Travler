@@ -32,9 +32,6 @@
 				<form class="form-inline" action="../courses/list" method="post">
 					<select name="type" class="form-control col-md-3 col-lg-3">
 						<option value="title">코스명</option>
-						<option value="kind">여행종류</option>
-						<option value="startPlace">출발지</option>
-						<option value="traffic">교통수단</option>
 						<option value="manager">담당자 정보</option> <!-- 두 가지 항목을 이용하여 비교 -->
 					</select>
 					<input type="text" name="keyword" class="form-control col-md-5 col-lg-5">

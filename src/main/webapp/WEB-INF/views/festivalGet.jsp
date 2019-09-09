@@ -41,7 +41,7 @@
 				</a>
 			<% } else { %>
 				<a href="/festivalBoards/">
-				<button type="button" class="btn btn-dark btn-md">목록으로</button>
+				<button type="button" class="btn btn-dark btn-md">돌아가기</button>
 				</a>
 			<% } %>
 		<% } %>

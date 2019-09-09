@@ -40,17 +40,25 @@
 	<div class="row">
 		
 		<div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 50px;">
-			<a href="/items/modify?idx=${item.tiIdx}">
-			<button type="button" class="btn btn-primary btn-md">수정</button>
-			</a>
-			
-			<a href="/items/remove?idx=${item.tiIdx}">
-			<button type="button" class="btn btn-danger btn-md">삭제</button>
-			</a>
-			
-			<a href="/items/list">
-			<button type="button" class="btn btn-dark btn-md">목록으로</button>
-			</a>
+			<% if((String)session.getAttribute("sessionId") != null) { %>
+	 			<% if(((String)session.getAttribute("sessionId")).equals("admin")) { %>
+				<a href="/items/modify?idx=${item.tiIdx}">
+				<button type="button" class="btn btn-primary btn-md">수정</button>
+				</a>
+				
+				<a href="/items/remove?idx=${item.tiIdx}">
+				<button type="button" class="btn btn-danger btn-md">삭제</button>
+				</a>
+				
+				<a href="/items/list">
+				<button type="button" class="btn btn-dark btn-md">목록으로</button>
+				</a>
+				<% } else { %>
+					<a href="/travels/all">
+					<button type="button" class="btn btn-dark btn-md">돌아가기</button>
+					</a>
+				<% } %>
+			<% } %>
 			
 			<button type="button" id="course" onClick="course_chk()" class="btn btn-danger">여행 코스 정보 확인</button>
 		</div>

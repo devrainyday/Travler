@@ -38,7 +38,9 @@
 	<interceptors>
 		<interceptor>
 			<mapping path="/courses/*" />
-			<mapping path="/items/*" />
+			<mapping path="/items/list" />
+			<mapping path="/items/register" />
+			<mapping path="/items/modify" />
 			<mapping path="/festivals/list" />
 			<mapping path="/festivals/register" />
 			<mapping path="/festivals/modify" />
@@ -49,7 +51,7 @@
 		<interceptor>
 			<mapping path="/travels/*" />
 			<mapping path="/festivalBoards/*" />
-			s
+			
 			<beans:ref bean="memberAuthInterceptor"/>
 		</interceptor>
 		

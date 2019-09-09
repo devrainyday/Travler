@@ -1,5 +1,6 @@
 package arc.mirim.mapper;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -18,12 +19,12 @@ public interface BookingMapper {
 	@Select("SELECT * FROM TRAVELBOOKING WHERE bIdx=#{idx}")
 	public BookingVO bookingGet(int idx);
 	
+	@Select("SELECT * FROM TRAVELBOOKING WHERE mId=#{id}")
+	public BookingVO bookingGetByMember(String id);
+	
 	@Insert("INSERT INTO TRAVELBOOKING (tItemNum, bIdx, tTitle, mNum, mName, bState, warning) "
 			+ "VALUES (#{tItemNum}, TBSEQUENCE.nextval, #{tTitle}, #{mNum}, #{mName}, #{bState}, #{warning})")
 	public void bookingRegister(BookingVO vo);
-	
-	@Delete("DELETE TRAVELBOOKING WHERE tcIdx=#{idx}")
-	public void bookingRemove(int idx);
 	
 	@Update("UPDATE TRAVELBOOKING SET bState='cancel' WHERE bIdx=#{idx}")
 	public void bookingCancel(BookingVO vo);

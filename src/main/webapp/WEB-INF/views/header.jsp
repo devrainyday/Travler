@@ -25,10 +25,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  
-<%
-	
-%>
 </head>
 <body>
 
@@ -51,17 +47,13 @@
 			   <li><a href="/festivals/list"><span>Festival</span></a></li>
 			   <li class="last"><a href="/admin"><span>Admin Page</span></a></li>
 		   		<% } else { %>
-		   	   <li class="active"><a href="/travel/all"><span>전체 여행</span></a></li>
-			   <li><a href="/travels/bus"><span>버스여행</span></a></li>
-			   <li><a href="/travels/train"><span>기차여행</span></a></li>
-			   <li><a href="/travels/island"><span>섬여행</span></a></li>
+		   	   <li class="active"><a href="/travels/all"><span>전체 여행</span></a></li>
+			   <li><a href="/travels/booking"><span>예약 관리</span></a></li>
 			   <li class="last"><a href="/festivalBoards/"><span>축제 방문록</span></a></li>
 		   		<% } %>
 			<% } else { %>
-			   <li class="active"><a href="/travel/all"><span>전체 여행</span></a></li>
-			   <li><a href="/travels/bus"><span>버스여행</span></a></li>
-			   <li><a href="/travels/train"><span>기차여행</span></a></li>
-			   <li><a href="/travels/island"><span>섬여행</span></a></li>
+			   <li class="active"><a href="/travels/all"><span>전체 여행</span></a></li>
+			   <li><a href="/travels/booking"><span>예약 관리</span></a></li>
 			   <li class="last"><a href="/festivalBoards/"><span>축제 방문록</span></a></li>
 			<% } %>
 			</ul>

@@ -50,4 +50,19 @@ public class CourseServiceImpl implements CourseService {
 	public List<courseNumVO> courseTitleGet() {
 		return courseMapper.courseGetTitle();
 	}
+
+	@Override
+	public List<CourseVO> courseGetBus() {
+		return courseMapper.courseGetBus();
+	}
+
+	@Override
+	public List<CourseVO> courseGetTrain() {
+		return courseMapper.courseGetTrain();
+	}
+
+	@Override
+	public List<CourseVO> courseGetIsland() {
+		return courseMapper.courseGetIsland();
+	}
 }
