@@ -28,7 +28,7 @@
     }
     
     <% if((String)session.getAttribute("message") != null) { %>
-    		alert(<%=(String)session.getAttribute("message") %>);
+    		alert('<%=(String)session.getAttribute("message") %>');
     		<% session.removeAttribute("message"); %>
     <% } %>
     </script>
@@ -69,7 +69,7 @@
 	<% } else { %>
 	<form class="frm_sign" action="/signout" method="post">
 		<%= session.getAttribute("sessionName") %> 님 환영합니다
-		<input type="submit" class="form-control btn btn_sub" value="로그아웃" style="border : none; color: white; background: #3BABFD;">
+		<input type="submit" class="form-control btn btn_sub" value="로그아웃">
 	</form>
 	<% } %>
 </div>

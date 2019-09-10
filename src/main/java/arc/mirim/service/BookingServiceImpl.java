@@ -38,4 +38,11 @@ public class BookingServiceImpl implements BookingService {
 	public void bookingCancel(BookingVO vo) {
 		bookingMapper.bookingCancel(vo);
 	}
+
+	@Override
+	public BookingVO bookingGetByMemberandNum(String mId, int tItemNum) {
+		System.out.println(mId+ " : " +tItemNum);
+		return bookingMapper.bookingGetByMemberandNum(mId, tItemNum);
+	}
+
 }

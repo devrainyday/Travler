@@ -13,6 +13,12 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script>
 	$(document).ready(function() {
+		
+		<% if((String)session.getAttribute("message") != null) { %>
+			alert('<%=(String)session.getAttribute("message") %>');
+			<% session.removeAttribute("message"); %>
+		<% } %>
+		
 		var charge = 0;
 		var childCharge = 0;
 		var infantCharge = 0;

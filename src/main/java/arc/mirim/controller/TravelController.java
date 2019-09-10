@@ -89,8 +89,17 @@ public class TravelController {
 	}
 	
 	@PostMapping("/booking/register")
-	public String travelBookingRegister(BookingVO vo) {
-		bookingS.bookingRegister(vo);
+	public String travelBookingRegister(BookingVO vo, HttpServletRequest request) {
+		String mId = (String)(request.getSession().getAttribute("sessionId"));
+		int tItemNum = vo.gettItemNum();
+		System.out.println(mId + " " + tItemNum);
+		BookingVO resultVO = bookingS.bookingGetByMemberandNum(mId, tItemNum);
+		if(resultVO == null) {
+			bookingS.bookingRegister(vo);
+		} else {
+			System.out.println("이미 예약해버린거임~");
+			request.getSession().setAttribute("message", "이미 예약하신 여행 상품입니다!");
+		}
 		return "redirect:/travels/";
 	}
 }
