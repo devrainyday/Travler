@@ -65,4 +65,9 @@ public class CourseServiceImpl implements CourseService {
 	public List<CourseVO> courseGetIsland() {
 		return courseMapper.courseGetIsland();
 	}
+
+	@Override
+	public String courseGetTitleByIdx(int idx) {
+		return courseMapper.courseGetTitleByIdx(idx);
+	}
 }

@@ -11,6 +11,7 @@ public interface CourseService {
 	public List<CourseVO> courseGetTrain();
 	public List<CourseVO> courseGetIsland();
 	
+	public String courseGetTitleByIdx(int idx);
 	public CourseVO courseGet(int idx);
 	public void courseRegister(CourseVO vo);
 	public void courseRemove(int idx);

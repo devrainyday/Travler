@@ -124,7 +124,7 @@ div.sign_box {
 	}
 	
 	.header_main {
-		margin-left: 20%;
+		margin-left: 40%;
 	}
 }
    
@@ -138,19 +138,8 @@ div.sign_box {
 	}
 	
 	.header_main {
-		margin-left: 30%;
+		margin-left: 50%;
 	}
-}
-
-.btn_main {
-	border : none;
-    color: #3BABFD;
-    background: white;
-    border-radius: 0;
-}
-.btn_main:hover {
-    color: white;
-    background: #3BABFD;
 }
 
 .btn_sub {

@@ -38,9 +38,4 @@ public class BookingServiceImpl implements BookingService {
 	public void bookingCancel(BookingVO vo) {
 		bookingMapper.bookingCancel(vo);
 	}
-
-	@Override
-	public void bookingAccept(BookingVO vo) {
-		bookingMapper.bookingAccept(vo);
-	}
 }

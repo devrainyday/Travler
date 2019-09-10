@@ -92,7 +92,7 @@
 					
 					<c:set var="userId" value="${festivalBoard.memberId}" />
 					<% String userId = (String)pageContext.getAttribute("userId"); %>
-					<% if(((String)session.getAttribute("sessionId")).equals(userId)) { %>
+					<% if(((String)session.getAttribute("sessionId")).equals(userId) || ((String)session.getAttribute("sessionId")).equals("admin")) { %>
 						<a href="/festivalBoards/remove?idx=${festivalBoard.fbIdx}">
 						<button class="btn btn-danger">방명록 삭제</button>
 						</a>

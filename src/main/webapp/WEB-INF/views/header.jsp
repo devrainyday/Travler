@@ -42,17 +42,18 @@
 			<ul>
 			<% if(sessionId != null) { %>
 				<% if(sessionId.equals("admin")) { %>
-			   <li class="active"><a href="/courses/list"><span>Course</span></a></li>
+			   <li><a href="/courses/list"><span>Course</span></a></li>
 			   <li><a href="/items/list"><span>Item</span></a></li>
 			   <li><a href="/festivals/list"><span>Festival</span></a></li>
-			   <li class="last"><a href="/admin"><span>Admin Page</span></a></li>
+			   <li><a href="/festivalBoards/"><span>Manage Festival Board</span></a></li>
+			   <li class="active last"><a href="/admin"><span>Admin Page</span></a></li>
 		   		<% } else { %>
-		   	   <li class="active"><a href="/travels/all"><span>전체 여행</span></a></li>
+		   	   <li class="active"><a href="/travels/"><span>여행 예약</span></a></li>
 			   <li><a href="/travels/booking"><span>예약 관리</span></a></li>
 			   <li class="last"><a href="/festivalBoards/"><span>축제 방문록</span></a></li>
 		   		<% } %>
 			<% } else { %>
-			   <li class="active"><a href="/travels/all"><span>전체 여행</span></a></li>
+			   <li class="active"><a href="/travels/"><span>여행 예약</span></a></li>
 			   <li><a href="/travels/booking"><span>예약 관리</span></a></li>
 			   <li class="last"><a href="/festivalBoards/"><span>축제 방문록</span></a></li>
 			<% } %>

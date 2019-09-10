@@ -10,6 +10,8 @@ public class BookingVO {
 	private String mName;
 	private int totalCharge;
 	private String bState;
+	private Date travelStartDay;
+	private Date travelEndDay;
 	private Date bookingDate;
 	private String warning;
 	
@@ -67,12 +69,23 @@ public class BookingVO {
 	public void setWarning(String warning) {
 		this.warning = warning;
 	}
+	public Date getTravelStartDay() {
+		return travelStartDay;
+	}
+	public void setTravelStartDay(Date travelStartDay) {
+		this.travelStartDay = travelStartDay;
+	}
+	public Date getTravelEndDay() {
+		return travelEndDay;
+	}
+	public void setTravelEndDay(Date travelEndDay) {
+		this.travelEndDay = travelEndDay;
+	}
 	
 	@Override
 	public String toString() {
 		return "BookingVO [tItemNum=" + tItemNum + ", bIdx=" + bIdx + ", tTitle=" + tTitle + ", mId=" + mId + ", mName="
-				+ mName + ", totalCharge=" + totalCharge + ", bState=" + bState + ", bookingDate=" + bookingDate
-				+ ", warning=" + warning + "]";
+				+ mName + ", totalCharge=" + totalCharge + ", bState=" + bState + ", travelStartDay=" + travelStartDay
+				+ ", travelEndDay=" + travelEndDay + ", bookingDate=" + bookingDate + ", warning=" + warning + "]";
 	}
-	
 }

@@ -22,13 +22,10 @@ public interface BookingMapper {
 	@Select("SELECT * FROM TRAVELBOOKING WHERE mId=#{id}")
 	public BookingVO bookingGetByMember(String id);
 	
-	@Insert("INSERT INTO TRAVELBOOKING (tItemNum, bIdx, tTitle, mNum, mName, bState, warning) "
-			+ "VALUES (#{tItemNum}, TBSEQUENCE.nextval, #{tTitle}, #{mNum}, #{mName}, #{bState}, #{warning})")
+	@Insert("INSERT INTO TRAVELBOOKING (tItemNum, bIdx, tTitle, travelStartDay, travelEndDay, totalCharge, mId, mName, bState, warning) "
+			+ "VALUES (#{tItemNum}, TBSEQUENCE.nextval, #{tTitle}, #{travelStartDay}, #{travelEndDay}, #{totalCharge}, #{mId}, #{mName}, 'ongoing', #{warning})")
 	public void bookingRegister(BookingVO vo);
 	
 	@Update("UPDATE TRAVELBOOKING SET bState='cancel' WHERE bIdx=#{idx}")
 	public void bookingCancel(BookingVO vo);
-	
-	@Update("UPDATE TRAVELBOOKING SET bState='decide' WHERE bIdx=#{idx}")
-	public void bookingAccept(BookingVO vo);
 }

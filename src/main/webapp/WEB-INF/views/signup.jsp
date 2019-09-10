@@ -18,7 +18,6 @@
 // 아이디 유효성 검사(1 = 중복 / 0 != 중복)
 $(document).ready(function() {
 	$("#id").blur(function() {
-		// id = "id_reg" / name = "userId"
 		var id = $('#id').val();
 		$.ajax({
 			url : '${pageContext.request.contextPath}/signup/idCheck?userId='+ id,

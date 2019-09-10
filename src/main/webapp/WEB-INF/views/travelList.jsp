@@ -13,10 +13,53 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script>
 	$(document).ready(function() {
+		var charge = 0;
+		var childCharge = 0;
+		var infantCharge = 0;
+		var total = 0;
+		
 		$("#changeValue").click(function() {
-		    var f = $(this).val();
-		    console.log(f);
-		    $("#tItemNum").val(f);
+			var tItemNum = $(this).val();
+		    $("#tItemNum").val(tItemNum);
+		    
+			$.ajax({
+				url : '${pageContext.request.contextPath}/travels/getBookingInfo?itemNum='+ tItemNum,
+				type : 'get',
+	            dataType : "json",
+	            contentType: "application/json; charset=UTF-8",
+				success : function(data) {
+						charge = data[Object.keys(data)[1]];
+					    childCharge = data[Object.keys(data)[2]];
+					    infantCharge = data[Object.keys(data)[3]];
+					    
+					    $("#tTitle").val(data[Object.keys(data)[0]]);
+					    $("#tTitleResult").text(data[Object.keys(data)[0]]);
+					    
+					    var s = new Date(data[Object.keys(data)[4]]).toISOString().slice(0,10);
+					    var e = new Date(data[Object.keys(data)[5]]).toISOString().slice(0,10);
+					    
+					    $("#travelStartDay").val(s);
+					    $("#travelEndDay").val(e);
+					    
+					    $("#travelDayResult").text(s + " ~ " + e);
+					}, error : function(request, error) {
+							console.log("실패");
+							console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error)
+					}
+			});
+			
+			total = 0;
+		    $("#charge").val("");
+		    $("#childCharge").val("");
+		    $("#infantCharge").val("");
+		    $("#totalCharge").val("");
+		    $("#totalChargeResult").text(total + " 원");
+		});
+		
+		$(".c").change(function() {
+		    total = (charge * $("#charge").val()) + (childCharge * $("#childCharge").val()) + (infantCharge * $("#infantCharge").val());
+		    $("#totalCharge").val(total);
+		    $("#totalChargeResult").text(total + " 원");
 		});
 	});
 	</script>
@@ -66,9 +109,9 @@
 								</a>
 								</td>
 								<td>
-								<a class="btn btn-success" value="<c:out value="${item.tiIdx}" />" id="changeValue" data-toggle="modal" data-target="#bookingModal" style="color: white;">
+								<button class="btn btn-success" id="changeValue" value="<c:out value="${item.tiIdx}" />" data-toggle="modal" data-target="#bookingModal">
 									예약하기
-								</a>
+								</button>
 								</td>
 							</tr>
 				    	</c:if>
@@ -87,7 +130,7 @@
 	      
 	        <!-- Modal Header -->
 	        <div class="modal-header">
-	          <h5 class="modal-title">예약</h5>
+	          <h5 class="modal-title">예약 정보</h5>
 	          <button type="button" class="close" data-dismiss="modal">&times;</button>
 	        </div>
 	
@@ -96,36 +139,45 @@
 	          <form action="/travels/booking/register" method="post">
 	          	<div class="form-group">
 					<label>
-						<input type="text" id="tItemNum" name="tItemNum" class="form-control" readonly>
-					</label>
-				</div>
-				
-				<div class="form-group">
-					<label>
-						<input type="text" name="tTitle" class="form-control" readonly>
+						<input type="hidden" id="tItemNum" name="tItemNum" class="form-control" readonly>
+						<span id="tTitleResult"></span>
+						<input type="hidden" id="tTitle" name="tTitle" class="form-control" readonly>
 					</label>
 				</div>
 			    
 				<div class="form-group">
+					여행 기간 :&nbsp;<span id="travelDayResult"></span>
+					
+					<div style="display: none;">
+						<input type="Date" class="form-control" id="travelStartDay" name="travelStartDay" readonly>&nbsp;~&nbsp;<input type="Date" class="form-control" id="travelEndDay" name="travelEndDay" readonly>
+					</div>
+				</div>
+				
+				<div class="form-group">
 					<label>
-						작성자 정보
-						<input type="text" value="<%= session.getAttribute("sessionId") %> (<%= session.getAttribute("sessionName") %>)" class="form-control" readonly>
+						예약 회원 정보
+						<input type="text" value="<%= session.getAttribute("sessionId") %> (<%= session.getAttribute("sessionName") %>)" class="form-control" disabled>
 					</label>
 					<input type="hidden" name="mId" value="<%= session.getAttribute("sessionId") %>">
 					<input type="hidden" name="mName" value="<%= session.getAttribute("sessionName") %>">
 				</div>
 				
-				<div class="form-inline form-group">
-					성인 수<input type="number" name="charge">
-					어린이 수<input type="number" name="childCharge">
-					영유아 수<input type="number" name="infantCharge">
+				<div class="form-inline">
+					성인 수<input type="number" placeholder="최대 10명 예약 가능합니다" min="0" max="10" id="charge" name="charge" class="c">
+					어린이 수<input type="number" placeholder="최대 10명 예약 가능합니다" min="0" max="10" id="childCharge" name="childCharge" class="c">
+					영유아 수<input type="number" placeholder="최대 10명 예약 가능합니다" min="0" max="10" id="infantCharge" name="infantCharge" class="c">
 				</div>
 				
 				<div class="form-group">
-					<input type="number" name="totalCharge">
+					총 결제 금액
+					<span style="color: #6DC1FF; font-size: 1.5rem;" id="totalChargeResult"></span>
+					<div style="display: none;">
+						<input type="number" id="totalCharge" name="totalCharge">
+					</div>
 				</div>
 				
 				<div class="form-group">
+					특이사항 · 주의사항
 					<textarea name="warning"></textarea>
 				</div>
 	        </div>

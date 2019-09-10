@@ -15,5 +15,4 @@ public interface BookingService {
 	public BookingVO bookingGetByMember(String id);
 	public void bookingRegister(BookingVO vo);
 	public void bookingCancel(BookingVO vo);
-	public void bookingAccept(BookingVO vo);
 }

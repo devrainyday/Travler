@@ -59,17 +59,17 @@
 				<span id="failMessage" style="color: red;"></span>
 			</div>
 			
-			<button type="button" onClick="chk_signin()" onClick="chk_signin()" class="form-control btn_main">로그인</button>
+			<button type="button" onClick="chk_signin()" onClick="chk_signin()" class="form-control btn" style="border : none; color: white; background: #3BABFD;">로그인</button>
 			
 			<a href="/signup" style="text-decoration: none;">
-				<button type="button" class="form-control btn_sub">회원가입</button>
+				<button type="button" class="form-control btn btn_sub">회원가입</button>
 			</a>
 		</div>
 	</form>
 	<% } else { %>
 	<form class="frm_sign" action="/signout" method="post">
 		<%= session.getAttribute("sessionName") %> 님 환영합니다
-		<input type="submit" class="btn btn_sub" value="로그아웃">
+		<input type="submit" class="form-control btn btn_sub" value="로그아웃" style="border : none; color: white; background: #3BABFD;">
 	</form>
 	<% } %>
 </div>

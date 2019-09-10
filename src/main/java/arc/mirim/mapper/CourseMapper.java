@@ -16,6 +16,9 @@ public interface CourseMapper {
 	@Select("SELECT * FROM TRAVELCOURSE")
 	public List<CourseVO> courseGetAll();
 	
+	@Select("SELECT title FROM TRAVELCOURSE WHERE tcIdx=#{idx}")
+	public String courseGetTitleByIdx(int idx);
+	
 	@Select("SELECT COUNT(*) FROM travelCourse WHERE kind LIKE '%버스%'")
 	public List<CourseVO> courseGetBus();
 	
