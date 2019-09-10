@@ -144,73 +144,58 @@
 		
 		<table style="width: 100%" class="col-md-12 col-sm-12 col-xs-12 table table-bordered">
 			<tr>
-				<td width="20%;">여행 코스 번호</td>
-				<td>${item.tCourseNum}</td>
-			</tr>
-			<tr>
-				<td>여행 상품 번호</td>
-				<td>${item.tiIdx}</td>
-			</tr>
-			
-			<tr>
-				<td>출발일 & 도착일</td>
+				<td width="20%;">여행기간</td>
 				<td><fmt:formatDate value="${item.startDay}" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${item.endDay}" pattern="yyyy-MM-dd"/></td>
 			</tr>
 			
 			<tr>
-				<td>일반 회원가</td>
 				<td>
+				일반 회원가
+				
+				</td>
+				<td>
+				일반 회원가 : 
 				<c:choose>
 					<c:when test="${item.charge == 0}">무료</c:when>
 					<c:otherwise>${item.charge}</c:otherwise>
-				</c:choose>
-				</td>
-			</tr>
-			<tr>
-				<td>어린이 요금</td>
-				<td>
+				</c:choose> 원
+				<br>
+				어린이 요금 : 
 				<c:choose>
 					<c:when test="${item.childCharge == 0}">무료</c:when>
 					<c:otherwise>${item.childCharge}</c:otherwise>
-				</c:choose>
-				</td>
-			</tr>
-			<tr>
-				<td>영아 요금</td>
-				<td>
+				</c:choose> 원
+				<br>
+				
+				영아 요금 : 
 				<c:choose>
 					<c:when test="${item.infantCharge == 0}">무료</c:when>
 					<c:otherwise>${item.infantCharge}</c:otherwise>
-				</c:choose>
+				</c:choose> 원
+				<br>
 				</td>
 			</tr>
 			
 			<tr>
-				<td>최소 인원</td>
+				<td>인원 제한</td>
 				<td>
+				최소 
 				<c:choose>
 					<c:when test="${item.minMan == 0}">없음</c:when>
 					<c:otherwise>${item.minMan}</c:otherwise>
-				</c:choose>
-				</td>
-			</tr>
-			<tr>
-				<td>최대 인원</td>
-				<td>
+				</c:choose> 명
+				~ 
+				최대
 				<c:choose>
 					<c:when test="${item.maxMan == 0}">없음</c:when>
 					<c:otherwise>${item.maxMan}</c:otherwise>
-				</c:choose>
+				</c:choose> 명
 				</td>
 			</tr>
 			
 			<tr>
-				<td>담당자 성명</td>
-				<td>${item.managerMan}</td>
-			</tr>
-			<tr>
-				<td>담당자 연락처</td>
-				<td>${item.managerCall}</td>
+				<td>담당자 정보</td>
+				<td>${item.managerMan} (Tel: ${item.managerCall} )</td>
 			</tr>
 			
 			<tr>
