@@ -12,8 +12,8 @@ import arc.mirim.domain.BookingVO;
 public interface BookingService {
 	public List<BookingVO> bookingGetAll();
 	public BookingVO bookingGet(int idx);
-	public BookingVO bookingGetByMember(String id);
+	public List<BookingVO> bookingGetByMember(String id);
 	public void bookingRegister(BookingVO vo);
-	public void bookingCancel(BookingVO vo);
+	public void bookingCancel(int idx);
 	public BookingVO bookingGetByMemberandNum(String mId, int tItemNum);
 }

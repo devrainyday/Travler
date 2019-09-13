@@ -25,7 +25,7 @@ public class BookingServiceImpl implements BookingService {
 	}
 
 	@Override
-	public BookingVO bookingGetByMember(String id) {
+	public List<BookingVO> bookingGetByMember(String id) {
 		return bookingMapper.bookingGetByMember(id);
 	}
 
@@ -35,8 +35,8 @@ public class BookingServiceImpl implements BookingService {
 	}
 
 	@Override
-	public void bookingCancel(BookingVO vo) {
-		bookingMapper.bookingCancel(vo);
+	public void bookingCancel(int idx) {
+		bookingMapper.bookingCancel(idx);
 	}
 
 	@Override

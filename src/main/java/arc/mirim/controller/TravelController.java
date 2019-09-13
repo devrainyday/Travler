@@ -88,7 +88,14 @@ public class TravelController {
 	@GetMapping("/booking")
 	public String travelBookingAllGet(Model model, HttpServletRequest request) {
 		model.addAttribute("memberBooking", bookingS.bookingGetByMember((String)(request.getSession().getAttribute("sessionId"))));
-		return "/travelList";
+		return "/bookingList";
+	}
+	
+	@PostMapping("/booking/update")
+	public String remove(@RequestParam("idx") int idx) {
+		System.out.println("it's booking update post");
+		bookingS.bookingCancel(idx);
+		return "redirect:/travels/booking/";
 	}
 	
 	@PostMapping("/booking/register")

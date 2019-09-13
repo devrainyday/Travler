@@ -21,7 +21,7 @@ public interface BookingMapper {
 	public BookingVO bookingGet(int idx);
 	
 	@Select("SELECT * FROM TRAVELBOOKING WHERE mId=#{id}")
-	public BookingVO bookingGetByMember(String id);
+	public List<BookingVO> bookingGetByMember(String id);
 	
 	@Select("SELECT * FROM TRAVELBOOKING WHERE mId=#{mId} AND tItemNum=#{tItemNum} AND bState='ongoing'")
 	public BookingVO bookingGetByMemberandNum(@Param("mId") String mId,@Param("tItemNum") int tItemNum);
@@ -31,5 +31,5 @@ public interface BookingMapper {
 	public void bookingRegister(BookingVO vo);
 	
 	@Update("UPDATE TRAVELBOOKING SET bState='cancel' WHERE bIdx=#{idx}")
-	public void bookingCancel(BookingVO vo);
+	public void bookingCancel(int idx);
 }

@@ -30,7 +30,7 @@ public interface ItemMapper {
 	@Select("SELECT * FROM TRAVELITEM WHERE tiIdx=#{tiIdx}")
 	public ItemVO itemGet(int idx);
 	
-	@Select("SELECT tItemNum, COUNT(*) num FROM TRAVELBOOKING GROUP BY tItemNum")
+	@Select("SELECT tItemNum, COUNT(*) num FROM TRAVELBOOKING WHERE bState='ongoing' GROUP BY tItemNum")
 	public List<itemNumVO> itemNumGet(); 
 	
 	@Insert("INSERT INTO TRAVELITEM (tiIdx, tCourseNum, startDay, endDay, charge, childCharge, infantCharge, minMan, maxMan, managerMan, managerCall) "
