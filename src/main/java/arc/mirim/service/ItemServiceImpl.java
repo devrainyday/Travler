@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import arc.mirim.domain.ItemVO;
+import arc.mirim.domain.itemNumVO;
 import arc.mirim.mapper.ItemMapper;
 
 @Service
@@ -18,6 +19,12 @@ public class ItemServiceImpl implements ItemService {
 	public List<ItemVO> itemGetAll() {
 		System.out.println("Getting all item");
 		return itemMapper.itemGetAll();
+	}
+
+	@Override
+	public List<itemNumVO> itemNumGet() {
+		System.out.println("Getting item num");
+		return itemMapper.itemNumGet();
 	}
 
 	@Override

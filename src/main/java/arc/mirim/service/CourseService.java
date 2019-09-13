@@ -7,9 +7,6 @@ import arc.mirim.domain.courseNumVO;
 
 public interface CourseService {
 	public List<CourseVO> courseGetAll();
-	public List<CourseVO> courseGetBus();
-	public List<CourseVO> courseGetTrain();
-	public List<CourseVO> courseGetIsland();
 	
 	public String courseGetTitleByIdx(int idx);
 	public CourseVO courseGet(int idx);

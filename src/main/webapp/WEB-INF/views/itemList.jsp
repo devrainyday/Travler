@@ -28,15 +28,6 @@
 					<a href="../items/register">
 					<button type="button" class="btn btn-primary btn-block btn-sm">여행 상품 추가</button>
 					</a>
-					
-					<form class="form-inline" action="../items/list" method="post">
-						<select name="type" class="form-control col-md-3 col-lg-3">
-							<option value="title">상품명</option>
-							<option value="manager">담당자 정보</option> <!-- 두 가지 항목을 이용하여 비교 -->
-						</select>
-						<input type="text" name="keyword" class="form-control col-md-5 col-lg-5">
-						<input type="submit" class="btn btn-success btn-sm col-md-4 col-lg-4" value="검색">
-					</form>
 			</div>
 			 
 			<table style="width: 100%" class="col-md-12 col-sm-12 col-xs-12 table table-bordered table-hover">

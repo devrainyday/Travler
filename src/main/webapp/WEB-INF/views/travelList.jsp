@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -108,7 +109,20 @@
 								<td><fmt:formatDate value="${item.startDay}" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${item.endDay}" pattern="yyyy-MM-dd"/></td>
 								<td><span style="color: #6DC1FF;">${item.charge} 원</span></td>
 								<td>최소 ${item.minMan}명 ~ 최대 ${item.maxMan}명</td>
-								<td>0</td>
+								<td>
+									<c:choose>
+										<c:when test="${fn:length(itemNumList) == 0}">
+											없음
+										</c:when>
+										<c:otherwise>
+											<c:forEach items="${itemNumList}" var="itemNum">
+												<c:if test="${item.tiIdx eq itemNum.tItemNum}">
+										    		${itemNum.num} 명
+										    	</c:if>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
+								</td>
 								<td>
 								<a class="btn btn-info" href="/items/get?idx=<c:out value="${item.tiIdx}" />">
 									자세한 정보 보기

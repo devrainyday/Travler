@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import arc.mirim.domain.BookingVO;
 import arc.mirim.domain.CourseVO;
 import arc.mirim.domain.ItemVO;
+import arc.mirim.domain.itemNumVO;
 import arc.mirim.service.BookingService;
 import arc.mirim.service.CourseService;
 import arc.mirim.service.ItemService;
@@ -63,6 +64,8 @@ public class TravelController {
 		model.addAttribute("courseList", courseList);
 		List<ItemVO> itemList = itemS.itemGetAll();
 		model.addAttribute("itemList", itemList);
+		List<itemNumVO> itemNumList = itemS.itemNumGet();
+		model.addAttribute("itemNumList", itemNumList);
 		return "/travelList";
 	}
 	

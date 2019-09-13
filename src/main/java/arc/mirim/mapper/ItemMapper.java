@@ -7,7 +7,9 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import arc.mirim.domain.CourseVO;
 import arc.mirim.domain.ItemVO;
+import arc.mirim.domain.itemNumVO;
 
 public interface ItemMapper {
 	// TRAVELITEM
@@ -15,8 +17,21 @@ public interface ItemMapper {
 	@Select("SELECT * FROM TRAVELITEM")
 	public List<ItemVO> itemGetAll();
 	
+	@Select("SELECT COUNT(*) FROM travelCourse WHERE kind LIKE '%버스%'")
+	public List<CourseVO> courseGetBus();
+	
+	@Select("SELECT COUNT(*) FROM travelCourse WHERE kind LIKE '%기차%'")
+	public List<CourseVO> courseGetTrain();
+	
+	@Select("SELECT COUNT(*) FROM travelCourse WHERE kind LIKE '%도%'")
+	public List<CourseVO> courseGetIsland();
+	
+	
 	@Select("SELECT * FROM TRAVELITEM WHERE tiIdx=#{tiIdx}")
 	public ItemVO itemGet(int idx);
+	
+	@Select("SELECT tItemNum, COUNT(*) num FROM TRAVELBOOKING GROUP BY tItemNum")
+	public List<itemNumVO> itemNumGet(); 
 	
 	@Insert("INSERT INTO TRAVELITEM (tiIdx, tCourseNum, startDay, endDay, charge, childCharge, infantCharge, minMan, maxMan, managerMan, managerCall) "
 			+ "VALUES (TISEQUENCE.nextval, #{tCourseNum}, #{startDay}, #{endDay}, #{charge}, #{childCharge}, #{infantCharge}, #{minMan}, #{maxMan}, #{managerMan}, #{managerCall})")
