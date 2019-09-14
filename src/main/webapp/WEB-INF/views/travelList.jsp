@@ -42,9 +42,19 @@
 					    $("#tTitle").val(data[Object.keys(data)[0]]);
 					    $("#tTitleResult").text(data[Object.keys(data)[0]]);
 					    
-					    var s = new Date(data[Object.keys(data)[4]])
-					    var e = new Date(data[Object.keys(data)[5]])
-					    
+					    function getFormatDate(date){ 
+					    	var year = date.getFullYear(); //yyyy 
+					    	var month = (1 + date.getMonth()); //M 
+						    month = month >= 10 ? month : '0' + month; //month 두자리로 저장 
+						    var day = date.getDate(); //d 
+						    day = day >= 10 ? day : '0' + day; //day 두자리로 저장
+						    return year + '-' + month + '-' + day; 
+						}
+
+					    var s = new Date(data[Object.keys(data)[4]]);
+					    var e = new Date(data[Object.keys(data)[5]]);
+					    s = getFormatDate(s);
+					    e = getFormatDate(e);
 					    console.log('s : '+s);
 					    console.log('e : '+e);
 					    
