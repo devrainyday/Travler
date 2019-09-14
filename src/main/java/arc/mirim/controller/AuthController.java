@@ -70,7 +70,13 @@ public class AuthController {
 		int count = 0;
         Map<Object, Object> map = new HashMap<Object, Object>();
         count = memberS.memberIdChk(userId);
-        map.put("cnt", count);
+        int secessionCnt = memberS.secessionCntById(userId);
+        if(secessionCnt > 0) {
+        	map.put("cnt", 7);
+        } else {
+        	map.put("cnt", count);
+        }
+        
 		return map;
 	}
 	

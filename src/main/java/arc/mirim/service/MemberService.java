@@ -16,4 +16,5 @@ public interface MemberService {
 	public void memberRemove(String id, String name);
 	public void memberModify(MemberVO vo);
 	public void pwdModify(String id, String pwd);
+	public int secessionCntById(String id);
 }

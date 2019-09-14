@@ -13,8 +13,8 @@ import arc.mirim.domain.SecessionVO;
 public interface SecessionMapper {
 	// SECESSION;
 
-	@Select("SELECT * FROM SECESSION WHERE id=#{userid}")
-	public List<SecessionVO> secessionGetById(String id);
+	@Select("SELECT COUNT(*) FROM SECESSION WHERE id=#{id}")
+	public int secessionCntById(String id);
 
     @Insert("INSERT INTO SECESSION (sIdx, id, name) VALUES (SSEQUENCE.nextval, #{id}, #{name})")
     public void registerSecession(@Param("id") String id, @Param("name") String name);

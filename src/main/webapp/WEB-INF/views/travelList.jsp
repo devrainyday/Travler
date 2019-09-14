@@ -42,8 +42,11 @@
 					    $("#tTitle").val(data[Object.keys(data)[0]]);
 					    $("#tTitleResult").text(data[Object.keys(data)[0]]);
 					    
-					    var s = new Date(data[Object.keys(data)[4]]).toISOString().slice(0,10);
-					    var e = new Date(data[Object.keys(data)[5]]).toISOString().slice(0,10);
+					    var s = new Date(data[Object.keys(data)[4]])
+					    var e = new Date(data[Object.keys(data)[5]])
+					    
+					    console.log('s : '+s);
+					    console.log('e : '+e);
 					    
 					    $("#travelStartDay").val(s);
 					    $("#travelEndDay").val(e);

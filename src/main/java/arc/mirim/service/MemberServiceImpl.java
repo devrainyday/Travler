@@ -82,4 +82,9 @@ public class MemberServiceImpl implements MemberService {
 	public int memberPwdChk(String id, String pwd) {
 		return memberMapper.mypagePwdChk(id, pwd);
 	}
+
+	@Override
+	public int secessionCntById(String id) {
+		return secessionMapper.secessionCntById(id);
+	}
 }

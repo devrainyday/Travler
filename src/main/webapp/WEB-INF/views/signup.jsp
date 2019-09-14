@@ -32,6 +32,10 @@ $(document).ready(function() {
 						$("#idMessage").text("사용중인 아이디입니다");
 						$("#signupSubmit").attr("disabled", true);
 						$("#signupSubmit").attr("opacity", "0.5");
+					} else if(cnt == 7) {
+						$("#idMessage").text("탈퇴완료 된 아이디는 재사용할 수 없습니다");
+						$("#signupSubmit").attr("disabled", true);
+						$("#signupSubmit").attr("opacity", "0.5");
 					} else {
 						if(cnt < 1){
 							// 0 : 아이디 길이 / 문자열 검사
@@ -84,7 +88,7 @@ function chk_signup() {
 	<div class="form-group">
 		<label>
 			ID 
-			<input type="text" id="id" name="id" maxlength="20">
+			<input class="form-control" type="text" id="id" name="id" maxlength="20">
 		</label>
 		<div>
 			<span id="idMessage" style="color: red;"></span>
@@ -94,28 +98,28 @@ function chk_signup() {
 	<div class="form-group">
 		<label>
 			비밀번호 
-			<input type="password" name="pwd" maxlength="20">
+			<input class="form-control" type="password" name="pwd" maxlength="20">
 		</label>
 	</div>
 		
 	<div class="form-group">
 		<label>
 			이름
-			<input type="text" name="name" maxlength="10">
+			<input class="form-control" type="text" name="name" maxlength="10">
 		</label>
 	</div>
 		
 	<div class="form-group">
 		<label>
 			이메일
-			<input type="email" name="email" maxlength="50">
+			<input class="form-control" type="email" name="email" maxlength="50">
 		</label>
 	</div>
 		
 	<div class="form-group">
 		<label>
 			연락처
-			<input type="text" name="phone" placeholder="'-' 를 포함하여 입력해주세요" maxlength="15">
+			<input class="form-control" type="text" name="phone" placeholder="'-' 를 포함하여 입력해주세요" maxlength="15">
 		</label>
 	</div>
 		
@@ -123,7 +127,7 @@ function chk_signup() {
 			<span id="failMessage" style="color: red;"></span>
 		</div>
 		
-		<button type="button" onClick="chk_signup()" id="signupSubmit" class="btn btn-primary">회원가입</button>
+		<button type="button" onClick="chk_signup()" id="signupSubmit" class="btn btn-outline-primary btn-md btn-block">회원가입</button>
 </form>
 </body>
 </html>
