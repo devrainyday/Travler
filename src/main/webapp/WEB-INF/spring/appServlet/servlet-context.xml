@@ -53,6 +53,7 @@
 		</interceptor>
 		
 		<interceptor>
+			<mapping path="/mypage/*" />
 			<mapping path="/travels/*" />
 			<mapping path="/festivalBoards/register" />
 			<mapping path="/festivalBoards/modify" />

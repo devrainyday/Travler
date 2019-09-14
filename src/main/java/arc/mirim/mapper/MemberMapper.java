@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -22,6 +23,9 @@ public interface MemberMapper {
     @Select("SELECT * FROM MEMBER WHERE id=#{id} AND pwd=#{pwd}")
     public SigninDTO signin(SigninDTO dto);
     
+    @Select("SELECT COUNT(*) FROM MEMBER WHERE id=#{id} AND pwd=#{oldPwd}")
+    public int mypagePwdChk(@Param("id") String id, @Param("oldPwd") String oldPwd);
+    
     @Select("SELECT COUNT(*) FROM MEMBER WHERE id=#{id}")
     public int signupChk(String id);
     
@@ -30,12 +34,12 @@ public interface MemberMapper {
     public void signup(MemberVO vo);
     
     @Update("UPDATE MEMBER SET name=#{name}, email=#{email}, phone=#{phone} "
-			+ "WHERE WHERE id=#{id}")
+			+ "WHERE id=#{id}")
 	public void memberModify(MemberVO vo);
     
     @Update("UPDATE MEMBER SET pwd=#{pwd} WHERE id=#{id}")
-	public void pwdModify(String id, String pwd);
+	public void pwdModify(@Param("id") String id, @Param("pwd") String pwd);
     
     @Delete("DELETE MEMBER WHERE id = #{id}")
-    public void memberRemove(String id);
+    public void memberRemove(@Param("id") String id);
 }

@@ -46,16 +46,18 @@
 			   <li><a href="/items/list"><span>Item</span></a></li>
 			   <li><a href="/festivals/list"><span>Festival</span></a></li>
 			   <li><a href="/festivalBoards/"><span>Manage Festival Board</span></a></li>
-			   <li class="active last"><a href="/admin"><span>Admin Page</span></a></li>
+			   <li class="active last"><a href="/admin/"><span>Admin Page</span></a></li>
 		   		<% } else { %>
 		   	   <li class="active"><a href="/travels/"><span>여행 상품 둘러보기</span></a></li>
 			   <li><a href="/travels/booking"><span>여행 예약 관리</span></a></li>
-			   <li class="last"><a href="/festivalBoards/"><span>축제 방문록</span></a></li>
+			   <li><a href="/festivalBoards/"><span>축제 방문록</span></a></li>
+			   <li class="last"><a href="/mypage/"><span>My Page</span></a></li>
 		   		<% } %>
 			<% } else { %>
 			   <li class="active"><a href="/travels/"><span>여행 상품 둘러보기</span></a></li>
 			   <li><a href="/travels/booking"><span>여행 예약 관리</span></a></li>
-			   <li class="last"><a href="/festivalBoards/"><span>축제 방문록</span></a></li>
+			   <li><a href="/festivalBoards/"><span>축제 방문록</span></a></li>
+			   <li class="last"><a href="/mypage/"><span>My Page</span></a></li>
 			<% } %>
 			</ul>
 		</div>

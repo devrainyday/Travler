@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -11,18 +12,12 @@ import arc.mirim.domain.SecessionVO;
 
 public interface SecessionMapper {
 	// SECESSION;
-	
-	@Select("SELECT * FROM SECESSION")
-	public List<SecessionVO> secessionGetAll();
-	
-	@Select("SELECT * FROM SECESSION WHERE sIdx=#{idx}")
-	public SecessionVO secessionGet(int idx);
-	
+
 	@Select("SELECT * FROM SECESSION WHERE id=#{userid}")
 	public List<SecessionVO> secessionGetById(String id);
 
-    @Insert("INSERT INTO SECESSION (sIdx, id, name) VALUES (SSEQUENCE.nextval, #{userid}, #{username})")
-    public void registerSecession(SecessionVO vo);
+    @Insert("INSERT INTO SECESSION (sIdx, id, name) VALUES (SSEQUENCE.nextval, #{id}, #{name})")
+    public void registerSecession(@Param("id") String id, @Param("name") String name);
 	
     // Secession 은 Update, Delete 하지 않음
 }
