@@ -54,8 +54,8 @@
 	    			
 						<c:forEach items="${memberBooking}" var="booking">
 				    		<tr>
-				    			<td>${booking.tTitle}</td>
-				    			<td>
+				    			<td width="30%">${booking.tTitle}</td>
+				    			<td width="30%">
 				    			<fmt:formatDate value="${booking.travelStartDay}" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${booking.travelEndDay}" pattern="yyyy-MM-dd"/>
 				    			</td>
 				    			<td>${booking.totalCharge}</td>
@@ -66,31 +66,31 @@
 				    			
 								<fmt:formatDate value="${booking.travelStartDay}" pattern="yyyy-MM-dd" var="startDate" />
 								<fmt:formatDate value="${booking.travelEndDay}" pattern="yyyy-MM-dd" var="endDate"/>
-		
+								
 				    			<c:choose>
-				    				<c:when test="${booking.bState eq 'ongoing' && nowDate ge startDate}"> <!-- 예약 취소 연결 -->
-					    				<form action="/travels/booking/update?idx=${booking.bIdx}" method="post" name="frm_bc">
-											<button type="button" onClick="chk_bc()" class="btn btn-outline-primary">예약 완료</button>
-										</form>
-									</c:when>
-									
-									<c:when test="${booking.bState eq 'cancel'}">
-										<button class="btn btn-outline-warning" style="cursor:default">
-											예약 취소
-										</button>
-									</c:when>
-									
-									<c:when test="${booking.bState eq 'ongoing' && nowDate le startDate}">
-										<button class="btn btn-outline-success" style="cursor:default">
-											여행 중
-										</button>
-									</c:when>
-									
-									<c:when test="${booking.bState eq 'ongoing' && nowDate le endDate}">
-										<button class="btn btn-outline-success">
-											여행 완료
-										</button>
-									</c:when>
+				    						<c:when test="${booking.bState eq 'ongoing' && nowDate ge endDate}">
+												<button class="btn btn-outline-success">
+													여행 완료
+												</button>
+											</c:when>
+											
+											<c:when test="${booking.bState eq 'ongoing' && nowDate ge startDate}">
+												<button class="btn btn-outline-success" style="cursor:default">
+													여행 중
+												</button>
+											</c:when>
+											
+						    				<c:when test="${booking.bState eq 'ongoing' && nowDate le startDate}"> <!-- 예약 취소 연결 -->
+												<form action="/travels/booking/update?idx=${booking.bIdx}" method="post" name="frm_bc">
+													<button type="button" onClick="chk_bc()" class="btn btn-outline-primary">예약 완료</button>
+												</form>
+											</c:when>
+											
+											<c:when test="${booking.bState eq 'cancel'}">
+												<button class="btn btn-outline-warning" style="cursor:default">
+													예약 취소
+												</button>
+											</c:when>
 								</c:choose>
 				    			</td>
 				    		</tr>

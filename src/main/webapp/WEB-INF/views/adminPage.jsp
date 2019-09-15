@@ -39,7 +39,84 @@
 		  
 		    <div id="menu1" class="tab-pane fade">
 		      <h3>여행 예약 조회</h3>
-		      
+		      <c:forEach items="${itemList}" var="item">
+				<div class="col-md-12">
+					<div class="card">
+					    <div class="card-header">
+						    <c:forEach items="${courseTitle}" var="ct">
+							    <c:if test="${item.tCourseNum eq ct.tcIdx}">
+						    		${ct.title}
+						    	</c:if>
+						    </c:forEach>
+						    
+					    <br>
+					    
+					    <fmt:formatDate value="${item.startDay}" pattern="yyyy-MM-dd"/>&nbsp; ~ &nbsp;<fmt:formatDate value="${item.endDay}" pattern="yyyy-MM-dd"/>
+					    </div>
+					    
+					    <div class="card-body">
+					    
+					    <table class="table table-hover" style="text-align: center;">
+					    	<tr>
+					    		<th>예약자</th>
+					    		<th>예약 금액</th>
+					    		<th>예약일</th>
+					    		<th>예약 상태</th>
+					    	</tr>
+					    	
+			    			<jsp:useBean id="now" class="java.util.Date" />
+			    			<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="nowDate" />
+			    			
+								<c:forEach items="${bookingList}" var="booking">
+									
+									<c:if test="${item.tiIdx eq booking.tItemNum}">
+									
+						    		<tr>
+						    			<td>${booking.mName} ( ${booking.mId} )</td>
+						    			<td>${booking.totalCharge} 원</td>
+						    			<td><fmt:formatDate value="${booking.bookingDate}" pattern="yyyy-MM-dd"/></td>
+						    			<td>
+						    			
+										<fmt:formatDate value="${booking.travelStartDay}" pattern="yyyy-MM-dd" var="startDate" />
+										<fmt:formatDate value="${booking.travelEndDay}" pattern="yyyy-MM-dd" var="endDate"/>
+										
+						    			<c:choose>
+						    			
+											<c:when test="${booking.bState eq 'ongoing' && nowDate ge endDate}">
+												<button class="btn btn-outline-success">
+													여행 완료
+												</button>
+											</c:when>
+											
+											<c:when test="${booking.bState eq 'ongoing' && nowDate ge startDate}">
+												<button class="btn btn-outline-success" style="cursor:default">
+													여행 중
+												</button>
+											</c:when>
+											
+						    				<c:when test="${booking.bState eq 'ongoing' && nowDate le startDate}"> <!-- 예약 취소 연결 -->
+												<button type="button" class="btn btn-outline-primary">예약 완료</button>
+											</c:when>
+											
+											<c:when test="${booking.bState eq 'cancel'}">
+												<button class="btn btn-outline-warning" style="cursor:default">
+													예약 취소
+												</button>
+											</c:when>
+											
+										</c:choose>
+						    			</td>
+						    		</tr>
+						    		
+							    	</c:if>
+							    	
+								</c:forEach>
+							</table>
+					    </div>
+					    
+					  	</div>
+					</div>
+				</c:forEach>
 		    </div>
 		    
 		    <div id="menu2" class="tab-pane fade">
