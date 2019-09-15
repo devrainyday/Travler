@@ -45,67 +45,65 @@
 		    <div id="menu2" class="tab-pane fade">
 		      <h3>회원 조회</h3>
 		      
-		    <div class="col-md-12 col-sm-12 col-xs-12">
-			<table style="width: 100%" class=" table table-bordered table-hover">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>성명</th>
-						<th>Email</th>
-						<th>연락처</th>
-						<th>예약 횟수</th>
-						<th>가입일</th>
-					</tr>
-				</thead>
-				
-				<c:forEach items="${memberInfo}" var="member">
-				<tr>
-					<td><c:out value="${member.id}" /></td>
-					<td><c:out value="${member.name}" /></td>
-					<td><c:out value="${member.email}" /></td>
-					<td><c:out value="${member.phone}" /></td>
-					<td>
-						<c:forEach items="${memberBookingNumInfo}" var="bookingNumInfo">
-							<c:if test="${member.id eq bookingNumInfo.mId}">
-					    		${bookingNumInfo.num} ( ${bookingNumInfo.totalCharge}원 )
-					    	</c:if>
-				    	</c:forEach>
-			    	</td>
-					<td>
-					<fmt:formatDate value="${member.joinDate}" pattern="yyyy-MM-dd"/>
-					</td>
-				</tr>
-				</c:forEach>
-			</table>
-			
-		    </div>
+			    <div class="col-md-12 col-sm-12 col-xs-12">
+					<table style="width: 100%" class=" table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>성명</th>
+								<th>Email</th>
+								<th>연락처</th>
+								<th>예약 횟수</th>
+								<th>가입일</th>
+							</tr>
+						</thead>
+						
+						<c:forEach items="${memberInfo}" var="member">
+						<tr>
+							<td><c:out value="${member.id}" /></td>
+							<td><c:out value="${member.name}" /></td>
+							<td><c:out value="${member.email}" /></td>
+							<td><c:out value="${member.phone}" /></td>
+							<td>
+								<c:forEach items="${memberBookingNumInfo}" var="bookingNumInfo">
+									<c:if test="${member.id eq bookingNumInfo.mId}">
+							    		${bookingNumInfo.num} ( ${bookingNumInfo.l} 등급 )
+							    	</c:if>
+						    	</c:forEach>
+					    	</td>
+							<td>
+							<fmt:formatDate value="${member.joinDate}" pattern="yyyy-MM-dd"/>
+							</td>
+						</tr>
+						</c:forEach>
+					</table>
+			    </div>
 		    </div>
 		    
 		    <div id="menu3" class="tab-pane fade">
 		      <h3>탈퇴 회원 조회</h3>
-		      
-		    <div class="col-md-12 col-sm-12 col-xs-12">
-			<table style="width: 100%" class="table table-bordered table-hover">
-				<thead>
-					<tr>
-						<th>탈퇴 아이디</th>
-						<th>탈퇴 성명</th>
-						<th>탈퇴일</th>
-					</tr>
-				</thead>
+			    <div class="col-md-12 col-sm-12 col-xs-12">
+					<table style="width: 100%" class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th>탈퇴 아이디</th>
+								<th>탈퇴 성명</th>
+								<th>탈퇴일</th>
+							</tr>
+						</thead>
+						
+						<c:forEach items="${secessionInfo}" var="secession">
+						<tr>
+							<td><c:out value="${secession.id}" /></td>
+							<td><c:out value="${secession.name}" /></td>
+							<td>
+							<fmt:formatDate value="${secession.secessionDate}" pattern="yyyy-MM-dd"/>
+							</td>
+						</tr>
+						</c:forEach>
+					</table>
 				
-				<c:forEach items="${secessionInfo}" var="secession">
-				<tr>
-					<td><c:out value="${secession.id}" /></td>
-					<td><c:out value="${secession.name}" /></td>
-					<td>
-					<fmt:formatDate value="${secession.secessionDate}" pattern="yyyy-MM-dd"/>
-					</td>
-				</tr>
-				</c:forEach>
-			</table>
-			
-			</div>
+				</div>
 		    </div>
 		    
 		    <div id="menu4" class="tab-pane fade">

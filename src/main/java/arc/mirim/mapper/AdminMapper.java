@@ -15,7 +15,7 @@ public interface AdminMapper {
 	@Select("SELECT * FROM memberInfo")
 	public List<memberInfoVO> memberInfoGetAll();
 	
-	@Select("SELECT mId, COUNT(*) num, SUM(totalCharge) totalCharge FROM TRAVELBOOKING WHERE bState='ongoing' GROUP BY mId")
+	@Select("SELECT mId, COUNT(*) num, getLevel(SUM(totalCharge)) l FROM TRAVELBOOKING WHERE bState='ongoing' GROUP BY mId")
 	public List<memberBookingNumVO> memberBookingNumGet();
 	
 	@Select("SELECT * FROM SECESSION")
