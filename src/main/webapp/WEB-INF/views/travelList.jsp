@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	
 	<script>
 	$(document).ready(function() {
 		
@@ -25,7 +26,7 @@
 		var infantCharge = 0;
 		var total = 0;
 		
-		$("#changeValue").click(function() {
+		$(".changeValue").click(function() {
 			var tItemNum = $(this).val();
 		    $("#tItemNum").val(tItemNum);
 		    
@@ -103,7 +104,7 @@
 <div class="container">
 	<div class="row">				
 		<c:forEach items="${courseList}" var="course">
-		<div class="col-md-12">
+		<div class="col-md-12" style="margin-top: 50px;">
 			<div class="card">
 			    <div class="card-header"><h5> ${course.title} </h5></div>
 			    <div class="card-body">
@@ -142,7 +143,7 @@
 								</a>
 								</td>
 								<td>
-								<button class="btn btn-success" id="changeValue" value="<c:out value="${item.tiIdx}" />" data-toggle="modal" data-target="#bookingModal">
+								<button class="btn btn-success changeValue" value="<c:out value="${item.tiIdx}" />" data-toggle="modal" data-target="#bookingModal">
 									예약하기
 								</button>
 								</td>
@@ -218,8 +219,8 @@
 	        <!-- Modal footer -->
 	        <div class="modal-footer">
 	          <div class="form-group">
-					<button type="submit" class="btn btn-primary">제출</button>
-	          		<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-outline-success">예약 완료</button>
+	          		<button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
 			  </div>
 	          </form>
 	        </div>

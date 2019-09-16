@@ -13,7 +13,7 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script>
 	$(document).ready(function() {
-		$("#changeValue").click(function() {
+		$(".changeValue").click(function() {
 		    var f = $(this).val();
 		    console.log(f);
 		    $("#festivalNum").val(f);
@@ -43,7 +43,7 @@
 			<h3>축제 목록</h3>
 		</div>
 		<c:forEach items="${festivalList}" var="festival">
-		<div class="col-md-6">
+		<div class="col-md-6" style="margin-top: 50px;">
 			<div class="card">
 			    <div class="card-header"><c:out value="No.${festival.fIdx}" />&nbsp;&nbsp;&nbsp;<c:out value="${festival.title}" /></div>
 			    <div class="card-body">
@@ -58,8 +58,8 @@
 					연락처 : ${festival.phone}
 					
 					<div class="col-md-12" style="margin-top: 30px;">
-				    <a href="/festivals/get?idx=<c:out value="${festival.fIdx}" />" class="btn btn-info">축제 정보 더 보기</a>
-				    <button type="button" id="changeValue" value="<c:out value="${festival.fIdx}" />" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">축제 방명록 작성</button>
+				    <a href="/festivals/get?idx=<c:out value="${festival.fIdx}" />" class="btn btn-outline-info">축제 정보 더 보기</a>
+				    <button type="button" value="<c:out value="${festival.fIdx}" />" class="btn btn-outline-success changeValue" data-toggle="modal" data-target="#registerModal">축제 방명록 작성</button>
 			    	</div>
 			    </div>
 			  </div>
@@ -71,7 +71,7 @@
 		</div>
 		
 		<c:forEach items="${list}" var="festivalBoard">
-		<div class="col-md-4">
+		<div class="col-md-4" style="margin-top: 50px;">
 			<div class="card">
 			    <div class="card-header">
 			    <c:forEach items="${festivalList}" var="festival">
@@ -86,7 +86,7 @@
 			    </div>
 			    <div class="card-body">
 			    	작성자 : ${festivalBoard.memberId} ( ${festivalBoard.memberName} )
-					<br>
+					<br><br>
 					${festivalBoard.fComment}
 					<br>
 					
@@ -94,7 +94,7 @@
 					<% String userId = (String)pageContext.getAttribute("userId"); %>
 					<% if(((String)session.getAttribute("sessionId")).equals(userId) || ((String)session.getAttribute("sessionId")).equals("admin")) { %>
 						<form action="/festivalBoards/remove?idx=${festivalBoard.fbIdx}" method="post">
-							<button type="submit" class="btn btn-danger">방명록 삭제</button>
+							<button type="submit" class="btn btn-outline-danger">방명록 삭제</button>
 						</form>
 					<% } %>
 			    </div>
@@ -141,8 +141,8 @@
 	        <!-- Modal footer -->
 	        <div class="modal-footer">
 	          <div class="form-group">
-					<button type="submit" class="btn btn-primary">제출</button>
-	          		<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-outline-success">작성 완료</button>
+	          		<button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
 			  </div>
 	          </form>
 	        </div>

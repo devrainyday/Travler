@@ -19,6 +19,9 @@
 $(document).ready(function() {
 	$("#id").blur(function() {
 		var id = $('#id').val();
+		if(id == '') {
+			return false;
+		}
 		$.ajax({
 			url : '${pageContext.request.contextPath}/signup/idCheck?userId='+ id,
 			type : 'get',

@@ -46,7 +46,6 @@ public class AuthController {
 			System.out.println("로그인에 성공했습니다");
 			request.getSession().setAttribute("sessionId", signinDto.getId());
 			request.getSession().setAttribute("sessionName", signinDto.getName());
-			
 		}
 		return "redirect:/";
 	}

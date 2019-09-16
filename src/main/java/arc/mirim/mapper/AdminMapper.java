@@ -11,15 +11,12 @@ import arc.mirim.domain.memberBookingNumVO;
 import arc.mirim.domain.memberInfoVO;
 
 public interface AdminMapper {
-
-	@Select("SELECT * FROM memberInfo")
-	public List<memberInfoVO> memberInfoGetAll();
 	
-	@Select("SELECT mId, COUNT(*) num, getLevel(SUM(totalCharge)) l FROM TRAVELBOOKING WHERE bState='ongoing' GROUP BY mId")
-	public List<memberBookingNumVO> memberBookingNumGet();
+	@Select("SELECT object_name FROM USER_OBJECTS WHERE object_type='TABLE'")
+	public List<String> tableNameGetAll();
 	
-	@Select("SELECT * FROM SECESSION")
-	public List<SecessionVO> secessionInfoGetAll();
+	@Select("SELECT COUNT(*) FROM #{table}")
+	public List<Integer> tableCntGet(String table);
 	
 	@Select("SELECT COUNT(*) FROM travelCourse WHERE kind LIKE '%버스%'")
 	public List<CourseVO> courseGetBus();
@@ -30,4 +27,13 @@ public interface AdminMapper {
 	@Select("SELECT COUNT(*) FROM travelCourse WHERE kind LIKE '%도%'")
 	public List<CourseVO> courseGetIsland();
 
+	
+	@Select("SELECT * FROM memberInfo")
+	public List<memberInfoVO> memberInfoGetAll();
+	
+	@Select("SELECT mId, COUNT(*) num, getLevel(SUM(totalCharge)) l FROM TRAVELBOOKING WHERE bState='ongoing' GROUP BY mId")
+	public List<memberBookingNumVO> memberBookingNumGet();
+	
+	@Select("SELECT * FROM SECESSION")
+	public List<SecessionVO> secessionInfoGetAll();
 }

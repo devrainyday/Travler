@@ -87,6 +87,7 @@
 				<td><a href="${festival.site}" target="_blank">${festival.site}</a></td>
 			</tr>
 			
+			<c:if test="${ not empty festival.latitude}">
 			<tr>
 				<td>위치</td>
 				<td>
@@ -127,6 +128,7 @@
 				${festival.address}
 				</td>
 			</tr>
+			</c:if>
 			
 			<tr>
 				<td>주최</td>

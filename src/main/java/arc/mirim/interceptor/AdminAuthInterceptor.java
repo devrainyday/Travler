@@ -26,7 +26,7 @@ public class AdminAuthInterceptor extends HandlerInterceptorAdapter {
 		if(session.getAttribute("sessionId") == null) {
 			session.setAttribute("message", "접근하실 수 없는 페이지입니다!");
 			System.out.println("세션이 있어도 admin이 아니라면 admin 메뉴에 접근할 수 없습니다");
-			response.sendRedirect("/signin");
+			response.sendRedirect("/");
 		    return false;
 		}
 		return super.preHandle(request, response, handler);

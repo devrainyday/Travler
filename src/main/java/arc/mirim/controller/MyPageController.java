@@ -33,8 +33,12 @@ public class MyPageController {
 	}
 	
 	@PostMapping("/modify")
-	public String myPageModify(MemberVO vo) {
+	public String myPageModify(MemberVO vo, HttpServletRequest request) {
 		myPageS.memberModify(vo);
+
+		request.getSession().removeAttribute("sessionName");
+		request.getSession().setAttribute("sessionName", vo.getName());
+		
 		return "redirect:/mypage/";
 	}
 	

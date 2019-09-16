@@ -17,16 +17,6 @@ public interface ItemMapper {
 	@Select("SELECT * FROM TRAVELITEM WHERE startday > sysdate")
 	public List<ItemVO> itemGetAll();
 	
-	@Select("SELECT COUNT(*) FROM travelCourse WHERE kind LIKE '%버스%'")
-	public List<CourseVO> courseGetBus();
-	
-	@Select("SELECT COUNT(*) FROM travelCourse WHERE kind LIKE '%기차%'")
-	public List<CourseVO> courseGetTrain();
-	
-	@Select("SELECT COUNT(*) FROM travelCourse WHERE kind LIKE '%도%'")
-	public List<CourseVO> courseGetIsland();
-	
-	
 	@Select("SELECT * FROM TRAVELITEM WHERE tiIdx=#{tiIdx}")
 	public ItemVO itemGet(int idx);
 	

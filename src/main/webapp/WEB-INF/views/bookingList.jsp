@@ -58,7 +58,7 @@
 				    			<td width="30%">
 				    			<fmt:formatDate value="${booking.travelStartDay}" pattern="yyyy-MM-dd"/> ~ <fmt:formatDate value="${booking.travelEndDay}" pattern="yyyy-MM-dd"/>
 				    			</td>
-				    			<td>${booking.totalCharge}</td>
+				    			<td>${booking.totalCharge} 원</td>
 				    			<td>
 				    			<fmt:formatDate value="${booking.bookingDate}" pattern="yyyy-MM-dd"/>
 				    			</td>

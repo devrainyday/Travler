@@ -33,7 +33,7 @@
 	}
 	
 	function chk_item(){
-		let frm = document.frm_course_modify;
+		let frm = document.frm_item_modify;
 		let message = document.getElementById("failMessage");
 		
 		if(!frm.charge.value) {
@@ -115,17 +115,17 @@
 				<div class="form-group">
 					<label>
 						출발일
-						<input onChange="change_endDay()" type="date" id="startDay" name="startDay" class="form-control" value="<fmt:formatDate value="${item.startDay}" pattern="yyyy-MM-dd"/>">
+						<input onChange="change_endDay()" type="date" id="startDay" name="startDay" readonly class="form-control" value="<fmt:formatDate value="${item.startDay}" pattern="yyyy-MM-dd"/>">
 					</label>
 					<label>
 						도착일
-						<input type="date" id="endDay" name="endDay" class="form-control" value="<fmt:formatDate value="${item.endDay}" pattern="yyyy-MM-dd"/>">
+						<input type="date" id="endDay" name="endDay" readonly class="form-control" value="<fmt:formatDate value="${item.endDay}" pattern="yyyy-MM-dd"/>">
 					</label>
 				</div>
 				<div class="form-group">
 					<label>
 						일반 회원가
-						<input type="number" name="charge"  value="${item.charge}"class="form-control" step="1000">
+						<input type="number" name="charge" value="${item.charge}"class="form-control" step="1000">
 					</label>
 					<label>
 						어린이 요금

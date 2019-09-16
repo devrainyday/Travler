@@ -61,6 +61,7 @@
 					    		<th>예약자</th>
 					    		<th>예약 금액</th>
 					    		<th>예약일</th>
+					    		<th>특이사항</th>
 					    		<th>예약 상태</th>
 					    	</tr>
 					    	
@@ -75,6 +76,14 @@
 						    			<td>${booking.mName} ( ${booking.mId} )</td>
 						    			<td>${booking.totalCharge} 원</td>
 						    			<td><fmt:formatDate value="${booking.bookingDate}" pattern="yyyy-MM-dd"/></td>
+						    			<td>
+						    			<c:if test="${ not empty booking.warning}">
+						    				${booking.warning}
+						    			</c:if>
+						    			<c:if test="${ empty booking.warning}">
+						    				없음
+						    			</c:if>
+						    			</td>
 						    			<td>
 						    			
 										<fmt:formatDate value="${booking.travelStartDay}" pattern="yyyy-MM-dd" var="startDate" />

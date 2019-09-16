@@ -50,15 +50,6 @@
 		} else if(!frm.site.value) {
 			frm.site.focus();
 			message.innerHTML = "축제 공식 사이트를 입력해주세요!";
-		} else if(!frm.address.value) {
-			frm.address.focus();
-			message.innerHTML = "주소를 입력해주세요!";
-		} else if(!frm.latitude.value || isNaN(frm.latitude.value)===true) {
-			frm.latitude.focus();
-			message.innerHTML = "좌표를 입력해주세요!";
-		} else if(!frm.longitude.value || isNaN(frm.longitude.value)===true) {
-			frm.longitude.focus();
-			message.innerHTML = "좌표를 입력해주세요!";
 		} else {
 			frm.submit();
 		}
