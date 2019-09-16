@@ -67,7 +67,7 @@ public interface AdminMapper {
 	public List<cntVO> memberBookingCnt();
 	
 	// Member 당 ongoing인 Booking 개수
-	@Select("SELECT M.id id, M.name name, COUNT(*) cnt FROM member M, travelBooking TB \r\n" + 
+	@Select("SELECT M.id id, M.name name, COUNT(*) cnt FROM member M, travelBooking TB " + 
 			"WHERE M.id = TB.mid AND TB.bState='ongoing' GROUP BY M.id, M.name")
 	public List<cntVO> memberOnGoingBookingCnt();
 

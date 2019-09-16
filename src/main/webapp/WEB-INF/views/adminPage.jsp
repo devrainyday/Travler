@@ -265,7 +265,7 @@
 		      <div class="col-md-12" style="margin: 25px 50px;">
 			      <span class="nonHighlight">축제 통계</span>
 			      <table class="table table-hover" style="text-align: center;">
-			      <tr> 
+			      <thead class="thead-dark">
 			    		<th>축제명</th>
 			    		<th>축제 방명록 수</th>
 		    	  </tr>
