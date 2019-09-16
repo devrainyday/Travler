@@ -1,5 +1,6 @@
 package arc.mirim.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import arc.mirim.domain.courseNumVO;
+import arc.mirim.domain.tableCntVO;
 import arc.mirim.service.AdminService;
 import arc.mirim.service.BookingService;
 import arc.mirim.service.CourseService;
@@ -42,6 +44,41 @@ public class AdminController {
 		model.addAttribute("memberBookingNumInfo", adminS.memberBookingNumGet());
 		
 		model.addAttribute("secessionInfo", adminS.secessionInfoGetAll());
+		
+		List<tableCntVO> tableCntList = new ArrayList<tableCntVO>();
+		List<String> tableNameList = adminS.tableNameGetAll();
+		
+		tableCntVO vo = new tableCntVO();
+		int cnt = 0;
+		
+		for(String tableName : tableNameList) {
+			
+			cnt = adminS.tableCntGet(tableName);
+			
+			vo.setTableName(tableName);
+			vo.setCnt(cnt);
+			
+			tableCntList.add(vo);
+			
+			System.out.println(vo);
+			
+			vo = new tableCntVO();
+		}
+		
+		model.addAttribute("tableCnt", tableCntList);
+		
+		for(Object s : tableCntList) {
+			System.out.println(s);
+		}
+		
+		model.addAttribute("cIBCnt", adminS.cIBCnt());
+		model.addAttribute("courseCnt", adminS.courseCnt());
+		model.addAttribute("itemCnt", adminS.itemCnt());
+		
+		model.addAttribute("fFestivalBoardCnt", adminS.fFestivalBoardCnt());
+		model.addAttribute("memberBookingCnt", adminS.memberBookingCnt());
+		model.addAttribute("memberOnGoingBookingCnt", adminS.memberOnGoingBookingCnt());
+		model.addAttribute("memberFestivalBoardCnt", adminS.memberFestivalBoardCnt());
 		
 		return "/adminPage";
 	}

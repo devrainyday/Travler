@@ -53,6 +53,14 @@ header * {
 	display: inline-block;
 }
 
+.nonHighlight {
+	font-size: 1.2rem;
+}
+
+.money {
+	color: #6DC1FF !important; font-size: 1.4rem;
+}
+
 div.sign_box {
 	position: fixed;
 	right: 5%;

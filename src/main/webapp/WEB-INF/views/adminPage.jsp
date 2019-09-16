@@ -28,16 +28,15 @@
 
 <div class="container">
 	<div class="row">
-		<ul class="col-md-12 nav nav-tabs">
-	    <li><a data-toggle="tab" href="#menu1">여행 예약 조회</a></li>
-	    <li><a data-toggle="tab" href="#menu2">회원 조회</a></li>
-	    <li><a data-toggle="tab" href="#menu3">탈퇴 회원 조회</a></li>
-	    <li><a data-toggle="tab" href="#menu4`">통계</a></li>
-		</ul>
+		  <ul class="nav nav-tabs col-md-12">
+		    <li class="active"><a data-toggle="tab" href="#menu1">여행 예약 조회</a></li>
+		    <li><a data-toggle="tab" href="#menu2">회원 조회</a></li>
+		    <li><a data-toggle="tab" href="#menu3">탈퇴 회원 조회</a></li>
+		    <li><a data-toggle="tab" href="#menu4">통계</a></li>
+		  </ul>
 		
 		  <div class="tab-content">
-		  
-		    <div id="menu1" class="tab-pane fade">
+		    <div id="menu1" class="tab-pane fade" style="margin: 50px;">
 		      <h3>여행 예약 조회</h3>
 		      <c:forEach items="${itemList}" var="item">
 				<div class="col-md-12">
@@ -127,11 +126,9 @@
 					</div>
 				</c:forEach>
 		    </div>
-		    
-		    <div id="menu2" class="tab-pane fade">
+		    <div id="menu2" class="tab-pane fade" style="margin: 50px;">
 		      <h3>회원 조회</h3>
-		      
-			    <div class="col-md-12 col-sm-12 col-xs-12">
+		      <div class="col-md-12 col-sm-12 col-xs-12">
 					<table style="width: 100%" class=" table table-bordered table-hover">
 						<thead>
 							<tr>
@@ -165,10 +162,9 @@
 					</table>
 			    </div>
 		    </div>
-		    
-		    <div id="menu3" class="tab-pane fade">
+		    <div id="menu3" class="tab-pane fade" style="margin: 50px;">
 		      <h3>탈퇴 회원 조회</h3>
-			    <div class="col-md-12 col-sm-12 col-xs-12">
+		      <div class="col-md-12 col-sm-12 col-xs-12">
 					<table style="width: 100%" class="table table-bordered table-hover">
 						<thead>
 							<tr>
@@ -191,12 +187,92 @@
 				
 				</div>
 		    </div>
-		    
-		    <div id="menu4" class="tab-pane fade">
+		    <div id="menu4" class="tab-pane fade" style="margin: 50px;">
 		      <h3>통계</h3>
 		      
-		    </div>
-		    
+		      <div class="col-md-12" style="margin: 25px 50px;">
+		      	<c:forEach items="${tableCnt}" var="tableC">
+		      		${tableC.tableName} : <span class="money">${tableC.cnt}</span><br>
+		      	</c:forEach>
+		      </div>
+		      
+		      <div class="col-md-12" style="margin: 25px 50px;">
+		      	<span class="nonHighlight">Travler에 저장된 여행 코스 데이터는 <span class="money">총 ${courseCnt[0]} 개</span> 이며,</span><br>
+	      		<span class="nonHighlight"><span class="money">${courseCnt[1]} 개</span>는 버스 여행, <span class="money">${courseCnt[2]} 개</span>는 기차 여행, <span class="money">${courseCnt[3]} 개</span>는 섬 여행 코스입니다.</span><br>
+		      </div>
+		      
+		      <div class="col-md-12" style="margin: 25px 50px;">
+	      	     <span class="nonHighlight">Travler에 저장된 여행 상품 데이터는 <span class="money">총 ${itemCnt[0]} 개</span> 이며, <br>
+	      	           그 중 <span class="money"> ${itemCnt[1]} 개</span>의 상품이 현재 판매되고 있습니다.</span><br>
+		      </div>
+		      
+		      <div class="col-md-12" style="margin: 25px 50px;">
+		      	<span class="nonHighlight">여행 통계</span>
+			      <table class="table table-hover" style="text-align: center;">
+			      <tr>
+			    		<th>여행코스 (번호)</th>
+			    		<th>코스 - 예약 수</th>
+			    		<th>코스 - 총 예약 금액 (원) </th>
+		    	  </tr>
+			      <c:forEach items="${cIBCnt}" var="cIBCnt">
+			      <tr>
+			      	<td>${cIBCnt.title} ( ${cIBCnt.tcIdx} )</td>
+			      	<td class="nonHighlight">${cIBCnt.cnt}</td>
+			      	<td class="nonHighlight">${cIBCnt.sum}</td>
+			      </tr>
+			      </c:forEach>
+			      </table>
+		      </div>
+		      
+		      <div class="col-md-12" style="margin: 25px 50px;">
+			      <span class="nonHighlight">회원 통계</span>
+			      <table class="table table-hover" style="text-align: center;">
+			      <tr width="70%">
+			    		<th>회원</th>
+			    		<th>예약 수</th>
+			    		<th>완료 상태 예약 수</th>
+			    		<th>여행 방명록 작성 횟수</th>
+		    	  </tr>
+			      <c:forEach items="${memberBookingCnt}" var="memberBookingCnt">
+			      	<tr>
+			      		<td>${memberBookingCnt.id} ( ${memberBookingCnt.name} )</td>
+			      		<td>${memberBookingCnt.cnt}</td>
+			      		<td>
+			      		<c:forEach items="${memberOnGoingBookingCnt}" var="memberOnGoingBookingCnt">
+				      		<c:if test="${memberOnGoingBookingCnt.id eq memberBookingCnt.id}">
+				      			${memberOnGoingBookingCnt.cnt}
+				      		</c:if>
+			      		</c:forEach>
+			      		</td>
+			      		<td>
+			      		<c:forEach items="${memberFestivalBoardCnt}" var="memberFestivalBoardCnt">
+				      		<c:if test="${memberFestivalBoardCnt.id eq memberBookingCnt.id}">
+				      			${memberFestivalBoardCnt.cnt}
+				      		</c:if>
+			      		</c:forEach>
+			      		</td>
+			      	</tr>
+			      	</c:forEach>
+			      </table>
+		      </div>
+		      
+		      <div class="col-md-12" style="margin: 25px 50px;">
+			      <span class="nonHighlight">축제 통계</span>
+			      <table class="table table-hover" style="text-align: center;">
+			      <tr width="70%">
+			    		<th>축제명</th>
+			    		<th>축제 방명록 수</th>
+		    	  </tr>
+			      <c:forEach items="${fFestivalBoardCnt}" var="fFestivalBoardCnt">
+			      	<tr>
+			    		<td>${fFestivalBoardCnt.title} ( ${fIdx} ) </td>
+			    		<td>${fFestivalBoardCnt.cnt}</td>
+		    	  	</tr>
+			      </c:forEach>
+		      	</table>
+		      </div>
+		      
+		   </div>
 		  </div>
 	</div>
 </div>
