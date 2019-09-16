@@ -29,7 +29,7 @@
 <div class="container">
 	<div class="row">
 		  <ul class="nav nav-tabs col-md-12">
-		    <li class="active"><a data-toggle="tab" href="#menu1">여행 예약 조회</a></li>
+		    <li><a data-toggle="tab" href="#menu1">여행 예약 조회</a></li>
 		    <li><a data-toggle="tab" href="#menu2">회원 조회</a></li>
 		    <li><a data-toggle="tab" href="#menu3">탈퇴 회원 조회</a></li>
 		    <li><a data-toggle="tab" href="#menu4">통계</a></li>
@@ -56,6 +56,7 @@
 					    <div class="card-body">
 					    
 					    <table class="table table-hover" style="text-align: center;">
+					    	<thead>
 					    	<tr>
 					    		<th>예약자</th>
 					    		<th>예약 금액</th>
@@ -63,6 +64,7 @@
 					    		<th>특이사항</th>
 					    		<th>예약 상태</th>
 					    	</tr>
+					    	</thead>
 					    	
 			    			<jsp:useBean id="now" class="java.util.Date" />
 			    			<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="nowDate" />
@@ -130,7 +132,7 @@
 		      <h3>회원 조회</h3>
 		      <div class="col-md-12 col-sm-12 col-xs-12">
 					<table style="width: 100%" class=" table table-bordered table-hover">
-						<thead>
+						<thead class="thead-dark">
 							<tr>
 								<th>ID</th>
 								<th>성명</th>
@@ -166,7 +168,7 @@
 		      <h3>탈퇴 회원 조회</h3>
 		      <div class="col-md-12 col-sm-12 col-xs-12">
 					<table style="width: 100%" class="table table-bordered table-hover">
-						<thead>
+						<thead class="thead-dark">
 							<tr>
 								<th>탈퇴 아이디</th>
 								<th>탈퇴 성명</th>
@@ -209,11 +211,13 @@
 		      <div class="col-md-12" style="margin: 25px 50px;">
 		      	<span class="nonHighlight">여행 통계</span>
 			      <table class="table table-hover" style="text-align: center;">
+			      <thead class="thead-dark">
 			      <tr>
 			    		<th>여행코스 (번호)</th>
 			    		<th>코스 - 예약 수</th>
 			    		<th>코스 - 총 예약 금액 (원) </th>
 		    	  </tr>
+		    	  </thead>
 			      <c:forEach items="${cIBCnt}" var="cIBCnt">
 			      <tr>
 			      	<td>${cIBCnt.title} ( ${cIBCnt.tcIdx} )</td>
@@ -227,12 +231,14 @@
 		      <div class="col-md-12" style="margin: 25px 50px;">
 			      <span class="nonHighlight">회원 통계</span>
 			      <table class="table table-hover" style="text-align: center;">
-			      <tr width="70%">
+			      <thead class="thead-dark">
+			      <tr>
 			    		<th>회원</th>
 			    		<th>예약 수</th>
 			    		<th>완료 상태 예약 수</th>
 			    		<th>여행 방명록 작성 횟수</th>
 		    	  </tr>
+		    	  </thead>
 			      <c:forEach items="${memberBookingCnt}" var="memberBookingCnt">
 			      	<tr>
 			      		<td>${memberBookingCnt.id} ( ${memberBookingCnt.name} )</td>
@@ -259,7 +265,7 @@
 		      <div class="col-md-12" style="margin: 25px 50px;">
 			      <span class="nonHighlight">축제 통계</span>
 			      <table class="table table-hover" style="text-align: center;">
-			      <tr width="70%">
+			      <tr> 
 			    		<th>축제명</th>
 			    		<th>축제 방명록 수</th>
 		    	  </tr>
