@@ -271,7 +271,7 @@
 		    	  </tr>
 			      <c:forEach items="${fFestivalBoardCnt}" var="fFestivalBoardCnt">
 			      	<tr>
-			    		<td>${fFestivalBoardCnt.title} ( ${fIdx} ) </td>
+			    		<td>${fFestivalBoardCnt.title} ( ${fFestivalBoardCnt.fIdx} ) </td>
 			    		<td>${fFestivalBoardCnt.cnt}</td>
 		    	  	</tr>
 			      </c:forEach>
