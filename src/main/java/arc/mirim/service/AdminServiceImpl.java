@@ -90,4 +90,9 @@ public class AdminServiceImpl implements AdminService {
 	public int tableCntGet(String tableName) {
 		return adminMapper.tableCntGet(tableName);
 	}
+
+	@Override
+	public void setMemberPwd(String id) {
+		adminMapper.setMemberPwd(id);
+	}
 }

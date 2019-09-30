@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import arc.mirim.domain.SecessionVO;
 import arc.mirim.domain.cntVO;
@@ -76,9 +77,11 @@ public interface AdminMapper {
 			"WHERE M.id = FB.memberid GROUP BY M.id, M.name")
 	public List<cntVO> memberFestivalBoardCnt();
 	
-	
 	@Select("SELECT * FROM memberInfo")
 	public List<memberInfoVO> memberInfoGetAll();
+	
+	@Update("UPDATE member SET pwd='asdf1234*' WHERE id=#{id}")
+	public void setMemberPwd(String id);
 	
 	@Select("SELECT mId, COUNT(*) num, getLevel(SUM(totalCharge)) l FROM TRAVELBOOKING WHERE bState='ongoing' GROUP BY mId")
 	public List<memberBookingNumVO> memberBookingNumGet();

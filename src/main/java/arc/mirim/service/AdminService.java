@@ -36,4 +36,6 @@ public interface AdminService {
 	public List<cntVO> memberOnGoingBookingCnt();
 	
 	public List<cntVO> memberFestivalBoardCnt();
+	
+	public void setMemberPwd(String id);
 }

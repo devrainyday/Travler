@@ -140,6 +140,7 @@
 								<th>연락처</th>
 								<th>예약 횟수</th>
 								<th>가입일</th>
+								<th>비밀번호 초기화</th>
 							</tr>
 						</thead>
 						
@@ -158,6 +159,12 @@
 					    	</td>
 							<td>
 							<fmt:formatDate value="${member.joinDate}" pattern="yyyy-MM-dd"/>
+							</td>
+							<td>
+								<form action="/admin/setMemberPwd/" method="post">
+									<input name="id" type="hidden" value="${member.id}">
+									<button class="btn btn-outline-primary">초기화</button>
+								</form>
 							</td>
 						</tr>
 						</c:forEach>

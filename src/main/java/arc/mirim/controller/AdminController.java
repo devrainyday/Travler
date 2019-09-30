@@ -1,14 +1,19 @@
 package arc.mirim.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import arc.mirim.domain.SigninDTO;
 import arc.mirim.domain.courseNumVO;
 import arc.mirim.domain.tableCntVO;
 import arc.mirim.service.AdminService;
@@ -81,5 +86,16 @@ public class AdminController {
 		model.addAttribute("memberFestivalBoardCnt", adminS.memberFestivalBoardCnt());
 		
 		return "/adminPage";
+	}
+	
+	@PostMapping("/setMemberPwd")
+	public String setMemberPwd(HttpServletRequest request) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("UTF-8");
+		String id = (String) request.getParameter("id");
+		
+		System.out.println("it's set Member Pwd post");
+		adminS.setMemberPwd(id);
+		System.out.println("set user ["+id+"] pwd");
+		return "redirect:/";
 	}
 }
